@@ -60,7 +60,12 @@
                   <a class="nav-link" href="#">Nosotros</a>
                 </li>
                 <li class="item-adm mx-2">
-                  <a class="nav-link text-white item-adm" title="User Admin">Administrador</a>
+                  <a class="nav-link text-white item-adm" title="User Admin">
+                    <select name="logout" id="logout" class="bot-logout">
+                      <option value="Admin">Administrador</option>
+                      <option value="log">logout</option>
+                    </select>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -68,8 +73,67 @@
         </nav>
       </section>
     </header>
-
-    <main></main>
+    <!--Modal Nuevo Juego-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos del Juego</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-code" class="col-form-label">Código:</label>
+            <input type="text" class="form-control" id="recipient-code" required>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-code" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="recipient-code" required>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-code" class="col-form-label">Categoría:</label>
+            <input type="text" class="form-control" id="recipient-code" required>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Descripción:</label>
+            <textarea class="form-control" id="message-text" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-code" class="col-form-label">Publicado:</label>
+            <input type="checkbox" required id="recipient-code">
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" id="graba-juego-table">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Fin modal-->
+    <main>
+      <div class="container">
+        <div class="title&bot d-flex justify-content-center mt-5">
+          <h1 class="title ms-auto text-light">Administrar Productos</h1>
+          <button type="button" class="bot-agr-game btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Nuevo +</button>
+        </div>
+        <div class="table">
+          <table class="table-game table mt-5" id="table-game">
+            <tr class="border border-2">
+              <th scope="col" class="text-light">Código</th>
+              <th scope="col" class="text-light">Nombre</th>
+              <th scope="col" class="text-light">Categoria</th>
+              <th scope="col" class="text-light">Descripción</th>
+              <th scope="col" class="text-light">Publicado</th>
+              <th scope="col" class="text-light">Opciones</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </main>
 
     <footer></footer>
 
