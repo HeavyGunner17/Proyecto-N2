@@ -85,30 +85,33 @@
         <form>
           <div class="mb-3">
             <label for="recipient-code" class="col-form-label">Código:</label>
-            <input type="text" class="form-control" id="recipient-code" required>
+            <input type="number" class="form-control dato" id="recipient-code" required>
           </div>
           <div class="mb-3">
             <label for="recipient-code" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="recipient-code" required>
+            <input type="text" class="form-control dato" id="recipient-name" required>
           </div>
           <div class="mb-3">
             <label for="recipient-code" class="col-form-label">Categoría:</label>
-            <input type="text" class="form-control" id="recipient-code" required>
+            <input type="text" class="form-control dato" id="recipient-category" required>
           </div>
           <div class="mb-3">
             <label for="message-text" class="col-form-label">Descripción:</label>
-            <textarea class="form-control" id="message-text" required></textarea>
+            <textarea class="form-control dato" id="message-text" required></textarea>
           </div>
           <div class="mb-3">
             <label for="recipient-code" class="col-form-label">Publicado:</label>
-            <input type="checkbox" required id="recipient-code">
+            <select name="published" id="published" class="dato">
+              <option value="SI">SI</option>
+              <option value="NO">NO</option>
+            </select>
           </div>
           
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" id="graba-juego-table">Guardar</button>
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+        <button onclick="agregarJuego()" type="button" class="btn btn-secondary" id="graba-juego-table">Guardar</button>
       </div>
     </div>
   </div>
@@ -118,17 +121,17 @@
       <div class="container">
         <div class="title&bot d-flex justify-content-center mt-5">
           <h1 class="title ms-auto text-light">Administrar Productos</h1>
-          <button type="button" class="bot-agr-game btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Nuevo +</button>
+          <button type="button" class="bot-agr-game btn btn-secondary ms-auto fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Nuevo +</button>
         </div>
         <div class="table">
           <table class="table-game table mt-5" id="table-game">
             <tr class="border border-2">
-              <th scope="col" class="text-light">Código</th>
-              <th scope="col" class="text-light">Nombre</th>
-              <th scope="col" class="text-light">Categoria</th>
-              <th scope="col" class="text-light">Descripción</th>
-              <th scope="col" class="text-light">Publicado</th>
-              <th scope="col" class="text-light">Opciones</th>
+              <th scope="col" class="text-light text-center">Código</th>
+              <th scope="col" class="text-light text-center">Nombre</th>
+              <th scope="col" class="text-light text-center">Categoria</th>
+              <th scope="col" class="text-light text-center">Descripción</th>
+              <th scope="col" class="text-light text-center">Publicado</th>
+              <th scope="col" class="text-light text-center">Opciones</th>
             </tr>
           </table>
         </div>
@@ -142,6 +145,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="/JS/app.js"></script>
+    <script src="../JS/admin.js"></script>  
+    <script src="https://kit.fontawesome.com/111edc64cf.js" crossorigin="anonymous"></script>
   </body>
 </html>
