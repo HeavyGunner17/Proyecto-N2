@@ -20,6 +20,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/adminStyle.css">
     <link rel="icon" type="image/png" href="./IMG/monkeyGames_logo.png"/>
     <script src="https://kit.fontawesome.com/f9203096aa.js" crossorigin="anonymous"></script>
 
@@ -29,10 +30,10 @@
 
     <header>
       <section class="nav_bar">
-        <nav class="navbar navbar-expand-lg bg-transparent fixed-top">
+        <nav class="navbar navbar-expand-lg bg-transparent">
           <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">
-              <img src="./IMG/monkeyGames_logo_horizontal.png" class="img-fluid" alt="logo"/>
+              <img src="../IMG/monkeyGames_logo_horizontal.png" class="img-fluid" alt="logo"/>
             </a>
             <button
               class="navbar-toggler"
@@ -62,7 +63,7 @@
                   <a class="nav-link" href="#">About</a>
                 </li>
                 <li class="nav-item m-2">
-                  <a class="nav-link text-white" href="#">Login</a>
+                  <a class="nav-link text-white">Administrador</a>
                 </li>
               </ul>
             </div>
@@ -71,7 +72,49 @@
       </section>
     </header>
 
-    <main></main>
+    <main class="mt-5">
+        <section class="container">
+          <h3 class="text-center text-white">Administracion de Usuarios</h3>
+  
+          <div class="table mt-4">
+            <div class="row border border-3 border-white d-flex align-items-center">
+              <div class="col-3">
+                <h6 class="table_title_text">Name</h6>
+              </div>
+              <div class="col-3">
+                <h6 class="table_title_text">Email</h6>
+              </div>
+              <div class="col-2">
+                <h6 class="table_title_text">State</h6>
+              </div>
+              <div class="col-4">
+                <h6 class="table_title_text">Options</h6>
+              </div>
+            </div>
+  
+            <!--Falta hacer responsive, y toma de datos-->
+  
+            <div class="table_users">
+              <div class="row conteiner_row_user border-bottom border-1 border-white">
+                <div class="col-6 col-lg-3 d-flex justify-content-center align-items-center">
+                  <span class="table_text-user">Rodrigo</span>
+                </div>
+                <div class="col-6 col-lg-3 d-flex justify-content-center align-items-center">
+                  <span class="table_text-user">rodrigo*8935@gmail.com</span>
+                </div>
+                <div class="col-6 col-lg-2 d-flex justify-content-center align-items-center">
+                  <span class="table_text-user">Pendiente</span>
+                </div>
+                <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
+                  <a href=""><i class="fa-solid fa-user-pen table_text-user"></i></a>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+          </div>
+        </section>
+      </main>
 
     <footer></footer>
 
