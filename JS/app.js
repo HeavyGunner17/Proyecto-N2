@@ -4,11 +4,16 @@
 const URL= "https://api.rawg.io/api/games?key=85458154fdcb4c3abf3290a579a65e18";
 
 let card = document.getElementById('card-template');
+const juegos=[];
 
 async function getGames(url){
     const res = await fetch(url);
     const data= await res.json();
     //console.log("Estoy consumiendo API");
+    //console.log(data.results);
+    //juegos.push(...data.results);
+
+
     console.log(data.results);
     displayGames(data.results);
     
@@ -44,4 +49,10 @@ function displayGames(games){
 
 
 
-getGames(URL);
+getGames(URL)
+.then(
+  (r)=>{
+    console.log("Se esta Ejecutando la promesa");
+  }
+)
+.catch((e)=>{console.warn(e);});
