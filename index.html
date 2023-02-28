@@ -61,25 +61,27 @@
           <div><img src="/IMG/bimo.webp" alt="bimo" id="bim" />
           </div>
           <div>
-            <label class="form-label mt-3" for="form3Example3">Username</label>
-            <input type="username" id="form3Example3" class="form-control form-control-lg"
-             required />
-             <label class="form-label" for="form3Example4">Password</label>
-             <input type="password" id="form3Example4" class="form-control form-control-lg"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                       title="8 characters minimum." required />
-             <a class="passRecover" href="">Did you forget your password?</a>       
+            <form onsubmit="validate(event)">
+              <label class="form-label mt-3" for="username">Username</label>
+              <input type="username" id="username" class="form-control form-control-lg" required />
+              <label class="form-label" for="password">Password</label>
+              <input type="password" id="password" class="form-control form-control-lg"
+                title="8 characters minimum." minlength="8" required />
+              <a class="passRecover" href="">Did you forget your password?</a>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Create account
+                </button>
+                <button type="submit" class="btn btn-primary" >
+                  Login
+                </button>
+              </div>
+            </form>
           </div>
-        </div> 
-     
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            Create account
-          </button>
-          <button type="button" class="btn btn-primary" onclick="redirect()">
-            Login
-          </button>
+
         </div>
+
+
       </div>
     </div>
   </div>
