@@ -72,3 +72,7 @@ body{
 .bot-logout{
   overflow: hidden;
 }
+
+.icon_navbar_collapse{
+  color: white;
+}
