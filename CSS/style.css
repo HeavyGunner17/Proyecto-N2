@@ -58,3 +58,13 @@ body{
   border-bottom: 3px solid #2bc9c8;
   color: white;
 }
+#bim{
+  height: 200px;
+}
+
+.modal-body {
+  display: flex;
+}
+.passRecover {
+  text-decoration: none;
+}
