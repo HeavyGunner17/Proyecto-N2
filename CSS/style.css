@@ -68,3 +68,16 @@ body{
 .passRecover {
   text-decoration: none;
 }
+.item-adm:hover{
+  border-bottom: none !important;
+}
+
+#logout{
+  background-color: #485563 ;
+  color: white;
+  border: none;
+}
+
+.bot-logout{
+  overflow: hidden;
+}
