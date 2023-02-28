@@ -11,8 +11,9 @@ async function getGames(url){
     //console.log("Estoy consumiendo API");
     console.log(data.results);
     displayGames(data.results);
-
+    
 }
+
 
 
 function displayGames(games){
@@ -30,7 +31,8 @@ function displayGames(games){
               <p class="card-text">Rating: ${rating}</p>
             </div>
             <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button">Ver Mas</button>
+            <button class="btn btn-outline-success"  type="button">Add to Fav</button>
+                <button class="btn btn-primary" type="button">See More</button>
             </div>
           </div>
         </div>
