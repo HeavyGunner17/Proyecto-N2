@@ -76,43 +76,26 @@
         <section class="container">
           <h3 class="text-center text-white">Administracion de Usuarios</h3>
   
-          <div class="table mt-4">
-            <div class="row border border-3 border-white d-flex align-items-center">
-              <div class="col-3">
-                <h6 class="table_title_text">Name</h6>
-              </div>
-              <div class="col-3">
-                <h6 class="table_title_text">Email</h6>
-              </div>
-              <div class="col-2">
-                <h6 class="table_title_text">State</h6>
-              </div>
-              <div class="col-4">
-                <h6 class="table_title_text">Options</h6>
-              </div>
-            </div>
-  
-            <!--Falta hacer responsive, y toma de datos-->
-  
-            <div class="table_users">
-              <div class="row conteiner_row_user border-bottom border-1 border-white">
-                <div class="col-6 col-lg-3 d-flex justify-content-center align-items-center">
-                  <span class="table_text-user">Rodrigo</span>
-                </div>
-                <div class="col-6 col-lg-3 d-flex justify-content-center align-items-center">
-                  <span class="table_text-user">rodrigo*8935@gmail.com</span>
-                </div>
-                <div class="col-6 col-lg-2 d-flex justify-content-center align-items-center">
-                  <span class="table_text-user">Pendiente</span>
-                </div>
-                <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
-                  <a href=""><i class="fa-solid fa-user-pen table_text-user"></i></a>
-                </div>
-              </div>
-            </div>
-  
-          </div>
-          </div>
+          <table class="table table-responsive table-hover mt-4">
+            <thead class="border ">
+              <tr>
+                <th class="table_title col-1" scope="col">#</th>
+                <th class="table_title col-3" scope="col">Name</th>
+                <th class="table_title col-5" scope="col">Email</th>
+                <th class="table_title col-2" scope="col">Status</th>
+                <th class="table_title col-1" scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody id="table_user">
+              <tr>
+                <th class="table_text" scope="row">1</th>
+                <td class="table_text">Rodrigo</td>
+                <td class="table_text">rodrigo8935@gmail.com</td>
+                <td class="table_text">Pendiente</td>
+                <td class="table_text"><a href=""><i class="fa-solid fa-user-pen icon_userEdit"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
         </section>
       </main>
 
