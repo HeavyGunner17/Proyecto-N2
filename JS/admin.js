@@ -1,5 +1,5 @@
 const table = document.getElementById('table-game');
-let listaJuegos = [];
+let listaJuegos = JSON.parse(localStorage.getItem('juegos'));
 
 function validacion (){
     if(document.getElementById('recipient-code').value!==''){
@@ -13,22 +13,11 @@ function validacion (){
     }
 }
 
-function agregarJuego (){
+function cargarJuegos(){
     let filas = document.querySelectorAll('.fil');
     for(fila of filas){
         fila.innerHTML='';
-    }    
-if(validacion()){
-    let juego = {
-        codigo : document.getElementById('recipient-code').value,
-        nombre : document.getElementById('recipient-name').value,
-        category : document.getElementById('recipient-category').value,
-        descripcion : document.getElementById('message-text').value,
-        publicado : document.getElementById('published').value
-    };
-    listaJuegos.push(juego);
-    localStorage.setItem('juegos',JSON.stringify(listaJuegos));
-
+    }   
     let juegosGuardados = JSON.parse(localStorage.getItem('juegos'));
     for (juego of juegosGuardados){
         let cod = juego.codigo;
@@ -45,11 +34,13 @@ if(validacion()){
         botonEliminar.id = parseInt(juego.codigo)+1;
         botonEliminar.onclick = ()=>{
             if(botonEliminar.id !== '' && ((botonEliminar.id)-1) === parseInt(row.id)){
-                row.innerHTML ='';
-            }
+                row.innerHTML ='';}
+        listaJuegos = listaJuegos.filter(obj =>
+            obj.codigo !== row.id);
+            localStorage.setItem('juegos',JSON.stringify(listaJuegos));
         }
         let botonEditar = document.createElement('div');
-        botonEditar.innerHTML = '<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa-solid fa-pen-to-square text-light fs-4"></i></button>'
+        botonEditar.innerHTML = '<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editarJuego" data-bs-whatever="@mdo"><i class="fa-solid fa-pen-to-square text-light fs-4"></i></button>'
         botonEditar.style = "width: 48px"
         let botonDestacar = document.createElement('button');
         botonEliminar.innerHTML = '<i class="fa-solid fa-trash text-light fs-4"></i>'
@@ -70,8 +61,32 @@ if(validacion()){
             opciones.append(botonEliminar,botonEditar,botonDestacar);
             row.appendChild(opciones);
         }
-        
+}
+cargarJuegos()
+
+function agregarJuego (){
+     
+if(validacion()){
+    let juego = {
+        codigo : document.getElementById('recipient-code').value,
+        nombre : document.getElementById('recipient-name').value,
+        category : document.getElementById('recipient-category').value,
+        descripcion : document.getElementById('message-text').value,
+        publicado : document.getElementById('published').value
+    };
+    listaJuegos.push(juego);
+    localStorage.setItem('juegos',JSON.stringify(listaJuegos));
+
+    cargarJuegos();
+
+    let modal = document.getElementById('exampleModal').querySelectorAll('input');
+    for (input of modal){
+        input.value='';
+    ;}
+    let descrip = document.getElementById('message-text');
+    descrip.value='';
     
+
     } else {
         alert('Los campos son obligatorios');
     }
