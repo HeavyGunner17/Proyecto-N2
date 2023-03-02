@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="JavaScript, html, juegos, games, online, compra"
+    />
+    <meta
+      name="description"
+      content="En esta increible pagina, podras comprar y conocer juegos nuevos que estan en taquilla y tambien juegos de otras epocas"
+    />
+    <meta name="author" content="David Smith ,Facundo Aguirre, Rodrigo Brizuela, Ana Malocu">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="icon" type="image/png" href="./IMG/monkeyGames_logo.png"/>
+
+    <title>Monkey Games</title>
+  </head>
+  <body>
+    <header>
+      <section class="nav_bar">
+        <nav class="navbar navbar-expand-lg bg-transparent">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+              <img src="../IMG/monkeyGames_logo_horizontal.png" class="img-fluid" alt="logo"/>
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item mx-2">
+                  <a
+                    class="nav-link active text-white"
+                    aria-current="page"
+                    href="./index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="#">Contacto</a>
+                </li>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="#">Nosotros</a>
+                </li>
+                <li class="item-adm mx-2">
+                  <a class="nav-link text-white item-adm" title="User Admin">
+                    <select name="logout" id="logout" class="bot-logout">
+                      <option value="Admin">Administrador</option>
+                      <option value="log">logout</option>
+                    </select>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </section>
+    </header>
+    <!--Modal Nuevo Juego-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos del Juego</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-code" class="col-form-label">Código:</label>
+            <input type="number" class="form-control dato" id="recipient-code" required>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-code" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control dato" id="recipient-name" required>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-code" class="col-form-label">Categoría:</label>
+            <input type="text" class="form-control dato" id="recipient-category" required>
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Descripción:</label>
+            <textarea class="form-control dato" id="message-text" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="recipient-code" class="col-form-label">Publicado:</label>
+            <select name="published" id="published" class="dato">
+              <option value="SI">SI</option>
+              <option value="NO">NO</option>
+            </select>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="cerrarModal">Cerrar</button>
+        <button onclick="agregarJuego()" type="button" class="btn btn-secondary" id="graba-juego-table">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Fin modal-->
+    <main>
+      <div class="container">
+        <div class="title&bot d-flex justify-content-center mt-5">
+          <h1 class="title ms-auto text-light">Administrar Productos</h1>
+          <button type="button" class="bot-agr-game btn btn-secondary ms-auto fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Nuevo +</button>
+        </div>
+        <div class="table">
+          <table class="table-game table mt-5" id="table-game">
+              <tr class="border border-2">
+                <th scope="col" class="text-light text-center">Código</th>
+                <th scope="col" class="text-light text-center">Nombre</th>
+                <th scope="col" class="text-light text-center">Categoria</th>
+                <th scope="col" class="text-light text-center">Descripción</th>
+                <th scope="col" class="text-light text-center">Publicado</th>
+                <th scope="col" class="text-light text-center">Opciones</th>
+              </tr>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../JS/admin.js"></script>  
+    <script src="https://kit.fontawesome.com/111edc64cf.js" crossorigin="anonymous"></script>
+  </body>
+</html>
