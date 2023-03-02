@@ -21,7 +21,7 @@
     />
     <link rel="stylesheet" href="/CSS/style.css" />
     <link rel="stylesheet" href="../CSS/adminStyle.css">
-    <link rel="icon" type="image/png" href="./IMG/monkeyGames_logo.png"/>
+    <link rel="icon" type="image/png" href="../IMG/monkeyGames_logo.png"/>
     <script src="https://kit.fontawesome.com/f9203096aa.js" crossorigin="anonymous"></script>
 
     <title>Monkey Games</title>
@@ -52,7 +52,7 @@
                   <a
                     class="nav-link active text-white"
                     aria-current="page"
-                    href="./index.html"
+                    href="../index.html"
                     >Home</a
                   >
                 </li>
@@ -87,17 +87,35 @@
               </tr>
             </thead>
             <tbody id="table_user">
-              <tr>
-                <th class="table_text" scope="row">1</th>
-                <td class="table_text">Rodrigo</td>
-                <td class="table_text">rodrigo8935@gmail.com</td>
-                <td class="table_text">Pendiente</td>
-                <td class="table_text"><a href=""><i class="fa-solid fa-user-pen icon_userEdit"></i></a></td>
-              </tr>
+              
             </tbody>
           </table>
         </section>
       </main>
+
+      <!--Modal-->
+      <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title fs-5" id="exampleModalLabel">Editar usuario</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <select class="form-select" name="statusUser" onchange="statusChange()" aria-label="Default select example">
+                <option selected>Seleccionar estado</option>
+                <option value="1">Pendiente</option>
+                <option value="2">Aprobado</option>
+                <option value="3">Suspendido</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-success">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <footer></footer>
 
@@ -106,6 +124,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="/JS/app.js"></script>
+    <script src="/JS/app_adminUsers.js"></script>
   </body>
 </html>
