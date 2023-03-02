@@ -121,14 +121,11 @@ function editarJuego() {
       descripcion: document.getElementById("descri").value,
       publicado: document.getElementById("publicado").value,
     };
-    //EL BOTON EDITAR ESTA EN OTRA FUNCION
-    if (botonEditar.id !== "" && botonEditar.id + 1 === parseInt(row.id)) {
-      row.innerHTML = "";
-    }
 
-    listaJuegos = listaJuegos.filter((obj) => obj.codigo !== row.id);
-    listaJuegos.push(nuevosValJuego);
-    localStorage.setItem("juegos", JSON.stringify(listaJuegos));
+    // SOLUCIONAR TEMA ID PARA SELECCIONAR FILA
+    // listaJuegos = listaJuegos.filter((obj) => obj.codigo !== row.id);
+    // listaJuegos.push(nuevosValJuego);
+    // localStorage.setItem("juegos", JSON.stringify(listaJuegos));
 
     cargarJuegos();
 
