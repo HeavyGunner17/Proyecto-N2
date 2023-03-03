@@ -1,5 +1,6 @@
 const table = document.getElementById("table-game");
 let listaJuegos = JSON.parse(localStorage.getItem("juegos"));
+let onEdit;
 
 function validacion() {
   if (document.getElementById("recipient-code").value !== "") {
@@ -59,7 +60,25 @@ function cargarJuegos() {
       '<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editarJuego" data-bs-whatever="@mdo"><i class="fa-solid fa-pen-to-square text-light fs-4"></i></button>';
     botonEditar.style = "width: 48px";
     botonEditar.id = parseInt(juego.codigo) - 1;
+    botonEditar.onclick = () => {
+      onEdit = row.id;
+    }
     let botonDestacar = document.createElement("button");
+    botonDestacar.id = parseInt(juego.codigo) - 2;
+    botonDestacar.onclick = () => {
+      let botones = document.querySelectorAll('.botones');
+      for(botonera of botones){
+        if(botonera.lastChild.firstChild.style.color=='yellow'){
+          botonera.lastChild.firstChild.style = "color: white";
+        } else {
+          botonDestacar.firstChild.style = "color:yellow !important"
+        }
+      }
+
+      //FALTA AGREGAR FUNCION REALCIONADA A LA PAGINA PRINCIPAL
+      
+      
+    }
     botonEliminar.innerHTML =
       '<i class="fa-solid fa-trash text-light fs-4"></i>';
     botonDestacar.innerHTML =
@@ -73,10 +92,11 @@ function cargarJuegos() {
       let tableData = document.createElement("td");
       tableData.textContent = val;
       tableData.style = "color:white; text-align:center";
+      tableData.className ='celda';
       row.appendChild(tableData);
     }
     let opciones = document.createElement("td");
-    opciones.classList = "d-flex justify-content-center";
+    opciones.classList = "d-flex justify-content-center botones";
     opciones.append(botonEliminar, botonEditar, botonDestacar);
     row.appendChild(opciones);
   }
@@ -114,18 +134,23 @@ function agregarJuego() {
 
 function editarJuego() {
   if (validacionNew()) {
-    let nuevosValJuego = {
-      codigo: document.getElementById("inp-codigo").value,
-      nombre: document.getElementById("inp-nombre").value,
-      category: document.getElementById("inp-categ").value,
-      descripcion: document.getElementById("descri").value,
-      publicado: document.getElementById("publicado").value,
-    };
-
-    // SOLUCIONAR TEMA ID PARA SELECCIONAR FILA
-    // listaJuegos = listaJuegos.filter((obj) => obj.codigo !== row.id);
-    // listaJuegos.push(nuevosValJuego);
-    // localStorage.setItem("juegos", JSON.stringify(listaJuegos));
+    let codNew = document.getElementById("inp-codigo").value;
+    let nombreNew = document.getElementById("inp-nombre").value;
+    let categoryNew = document.getElementById("inp-categ").value;
+    let descripcionNew = document.getElementById("descri").value;
+    let publicadoNew = document.getElementById("publicado").value;
+    
+    let baseJuegos = JSON.parse(localStorage.getItem('juegos')); 
+    baseJuegos.map((j)=>{
+      if(j.codigo===onEdit){
+        j.codigo=codNew;
+        j.nombre=nombreNew;
+        j.category=categoryNew;
+        j.descripcion=descripcionNew;
+        j.publicado=publicadoNew;
+      }
+    })
+    localStorage.setItem('juegos',JSON.stringify(baseJuegos));
 
     cargarJuegos();
 
@@ -144,5 +169,4 @@ function editarJuego() {
     alert("Los campos son obligatorios");
   }
 
-  
 }
