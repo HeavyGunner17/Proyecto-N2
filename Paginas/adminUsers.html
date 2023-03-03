@@ -94,15 +94,15 @@
       </main>
 
       <!--Modal-->
-      <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+      <div class="modal fade" id="editUserModal">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
               <h3 class="modal-title fs-5" id="exampleModalLabel">Editar usuario</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <select class="form-select" name="statusUser" onchange="statusChange()" aria-label="Default select example">
+              <select class="form-select" name="statusUser" id="select_status" aria-label="Default select example">
                 <option selected>Seleccionar estado</option>
                 <option value="1">Pendiente</option>
                 <option value="2">Aprobado</option>

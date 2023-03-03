@@ -19,65 +19,74 @@ En editar abre modal para dar de alta el usuario, suspenderlo, o dejarlo pendien
 </tr>
 */
 
-let usuario = {
-    id : 1,
-    name : "Rodrigo Brizuela",
-    email : "rodrigo8935@gmail.com",
-    status: "Pendiente"
-}
+let usuarios = [
+  {
+    id: 1,
+    name: "Rodrigo Brizuela",
+    email: "rodrigo8935@gmail.com",
+    status: "Pendiente",
+  },
+  {
+    id: 2,
+    name: "Macarena Correa",
+    email: "macacorrea715@gmail.com",
+    status: "Pendiente",
+  },
+  {
+    id: 3,
+    name: "Lionel Messi",
+    email: "liomessi@gmail.com",
+    status: "Pendiente",
+  },
+];
 
-let usuariosArray = [usuario]
+localStorage.setItem("user", JSON.stringify(usuarios));
 
-const table = document.getElementById('table_user');
+const table = document.getElementById("table_user");
 
+let userRegistred = JSON.parse(localStorage.getItem("user"));
 
-localStorage.setItem('user', JSON.stringify(usuariosArray));
+function loadUsers() {
 
+  for (user of userRegistred) {
+    let row = document.createElement("tr");
+    table.appendChild(row);
 
-function loadUsers () {
-    let userRegistred = JSON.parse(localStorage.getItem('user'));
+    let id = user.id;
+    let name = user.name;
+    let email = user.email;
+    let status = user.status;
 
+    let userData = [id, name, email, status];
 
-    for (user of userRegistred){
-        let row = document.createElement('tr');
-        table.appendChild(row)
+    for (dato of userData) {
+      let campo = document.createElement("td");
+      campo.className = "table_text";
 
-        let id = user.id;
-        let name = user.name;
-        let email = user.email;
-        let status = user.status;
+      campo.textContent = dato;
 
-        let userData = [id, name, email, status];
-
-        for (dato of userData){
-            let campo = document.createElement('td');
-            campo.className= "table_text";
-
-            campo.textContent = dato;
-
-            row.appendChild(campo);
-            
-        }
-
-        let options = document.createElement('td');
-        options.className = "table_text";
-        options.innerHTML += `<button class="bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#editUserModal">
-        <i class="fa-solid fa-user-pen icon_userEdit">
-        </i>
-      </button>`
-
-      row.appendChild(options);
-        
+      row.appendChild(campo);
     }
 
+    let options = document.createElement("td");
+    options.className = "table_text";
+    options.innerHTML += `<button class="bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#editUserModal">
+        <i class="fa-solid fa-user-pen icon_userEdit">
+        </i>
+      </button>`;
+
+    row.appendChild(options);
+  }
 }
 
-function statusChange () {
-    const newStatus = document.getElementById('statusUser').value;
+function statusChange() {
+  const select_status = document.getElementById("select_status");
 
+  const newStatus = select_status.options[select_status.selectedIndex].text;
 
+  usuarios.status = newStatus;
 
-
+  
 }
 
 loadUsers();
