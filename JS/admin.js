@@ -62,6 +62,10 @@ function cargarJuegos() {
     botonEditar.id = parseInt(juego.codigo) - 1;
     botonEditar.onclick = () => {
       onEdit = row.id;
+      document.getElementById("inp-codigo").value=cod;
+      document.getElementById("inp-nombre").value=name;
+      document.getElementById("inp-categ").value=cat;
+      document.getElementById("descri").value=descr;
     }
     let botonDestacar = document.createElement("button");
     botonDestacar.id = parseInt(juego.codigo) - 2;
