@@ -1,3 +1,30 @@
+class juegoHardCode {
+  constructor (codigo,nombre,category,descripcion,publicado) {
+    this.codigo=codigo,
+    this.nombre=nombre,
+    this.category=category,
+    this.descripcion=descripcion,
+    this.publicado=publicado}
+  }
+  let juegosHardCod =[];
+
+  function capturaJuegosPantalla (){
+  const juegosEnPantalla = document.querySelectorAll('.juegoHard');
+  for (contenedor of juegosEnPantalla){
+    let codigoJ =contenedor.querySelector('.codi');
+    let nomJ = contenedor.querySelector('.titu');
+    let categJ = contenedor.querySelector('.catego');
+    let descrJ = contenedor.querySelector('.desc');
+    let publicJ = contenedor.querySelector ('.publ');
+    let juegoPantalla = new juegoHardCode (codigoJ,nomJ,categJ,descrJ,publicJ);
+    juegoHardCod.push(juegoPantalla);
+  }
+  localStorage.setItem('juegos',JSON.stringify(juegosHardCod));
+  }
+
+
+
+
 const table = document.getElementById("table-game");
 let listaJuegos = JSON.parse(localStorage.getItem("juegos"));
 let onEdit;
