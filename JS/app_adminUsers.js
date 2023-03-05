@@ -19,6 +19,7 @@ En editar abre modal para dar de alta el usuario, suspenderlo, o dejarlo pendien
 </tr>
 */
 
+
 let usuarios = [
   {
     id: 1,
@@ -39,7 +40,6 @@ let usuarios = [
     status: "Pendiente",
   },
 ];
-
 localStorage.setItem("user", JSON.stringify(usuarios));
 
 const table = document.getElementById("table_user");
@@ -49,7 +49,7 @@ let userRegistred = JSON.parse(localStorage.getItem("user"));
 function loadUsers() {
 
   for (user of userRegistred) {
-    let row = document.createElement("tr");
+    let row_user = document.createElement("tr");
     table.appendChild(row);
 
     let id = user.id;
@@ -65,18 +65,22 @@ function loadUsers() {
 
       campo.textContent = dato;
 
-      row.appendChild(campo);
+      row_user.appendChild(campo);
     }
 
     let options = document.createElement("td");
     options.className = "table_text";
-    options.innerHTML += `<button class="bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#editUserModal">
+    options.innerHTML += `<button class="bg-transparent border-0" onclick="open_modal ()" data-bs-toggle="modal" data-bs-target="#editUserModal">
         <i class="fa-solid fa-user-pen icon_userEdit">
         </i>
       </button>`;
 
-    row.appendChild(options);
+      row_user.appendChild(options);
   }
+}
+
+function open_modal () {
+  
 }
 
 function statusChange() {
@@ -84,7 +88,7 @@ function statusChange() {
 
   const newStatus = select_status.options[select_status.selectedIndex].text;
 
-  usuarios.status = newStatus;
+  
 
   
 }
