@@ -43,8 +43,8 @@ body{
   background-size: contain;
 }
 
-
 /*Estilos Navbar*/
+
 .nav-link{
   color: white;
 }
@@ -85,4 +85,8 @@ body{
 .modal-container{
   display: flex;
   justify-content: space-around;
+}
+
+.icon_navbar_collapse{
+  color: white;
 }

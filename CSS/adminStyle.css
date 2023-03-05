@@ -1,0 +1,18 @@
+.table_title{
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.table_text{
+    color: rgba(255, 255, 255, 0.61);
+    text-align: center;
+}
+
+.icon_userEdit{
+    color: white;
+}
+
+.icon_userEdit:hover{
+    color: #2bc9c8;
+}
