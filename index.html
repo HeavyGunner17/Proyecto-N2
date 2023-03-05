@@ -50,41 +50,69 @@
     </section>
   </header>
 
+
+
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
+
+    <div class="modal-dialog modal-xl">
+      <div class="container-fluid">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div><img src="/IMG/bimo.webp" alt="bimo" id="bim" />
-          </div>
-          <div>
-            <form onsubmit="validate(event)">
-              <label class="form-label mt-3" for="username">Username</label>
-              <input type="username" id="username" class="form-control form-control-lg" required />
-              <label class="form-label" for="password">Password</label>
-              <input type="password" id="password" class="form-control form-control-lg"
-                title="8 characters minimum." minlength="8" required />
-              <a class="passRecover" href="">Did you forget your password?</a>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                  Create account
-                </button>
-                <button type="submit" class="btn btn-primary" >
-                  Login
-                </button>
+        </div> -->
+
+          <div class="modal-body modal-container">
+            <div class="">
+              <div><img src="/IMG/bimo.webp" alt="bimo" id="bim" />
               </div>
-            </form>
+            </div>
+            <div class="">
+              <form onsubmit="validate(event)">
+                <h6>Sing In here!</h6>
+                <label class="form-label mt-3" for="username">Username</label>
+                <input type="text" id="username" class="form-control form-control-lg" required />
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" class="form-control form-control-lg" title="8 characters minimum."
+                  minlength="8" required />
+                <label class="form-label" for="checkbox" id="checkbox">Remember your password</label>
+                <input type="checkbox" id="checkbox">
+                <div><a class="passRecover" href="">Did you forget your password?</a></div>
+                <div>
+                  <button type="submit" class="btn btn-primary mt-3">
+                    Login
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="">
+
+              <form>
+                <h6>Register here!</h6>
+                <label class="form-label mt-3" for="newUsername">Username</label>
+                <input type="text" id="newUsername" class="form-control form-control-lg" required />
+                <label class="form-label" for="form3Example3">Email</label>
+                <input type="email" id="form3Example3" class="form-control form-control-lg" required />
+
+                <label class="form-label" for="password" class="cols-sm-2 control-label">Password</label>
+                <input type="password" id="password" class="form-control form-control-lg" title="8 characters minimum."
+                  minlength="8" required />
+                <label for="confirm" class="cols-sm-2 control-label">Confirm password</label>
+                <input type="password" class="form-control form-control-lg" name="confirm" id="confirm" required />
+                <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal">
+                  Create account
+              </form>
+            </div>
           </div>
 
+
         </div>
-
-
       </div>
     </div>
   </div>
+
+
 
   <main></main>
 

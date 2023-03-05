@@ -59,7 +59,7 @@ body{
   color: white;
 }
 #bim{
-  height: 200px;
+  height: 250px;
 }
 
 .modal-body {
@@ -80,4 +80,9 @@ body{
 
 .bot-logout{
   overflow: hidden;
+}
+
+.modal-container{
+  display: flex;
+  justify-content: space-around;
 }
