@@ -11,7 +11,7 @@
   <meta name="author" content="David Smith ,Facundo Aguirre, Rodrigo Brizuela, Ana Malocu" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="stylesheet" href="/CSS/style.css" />
+  <link rel="stylesheet" href="./CSS/style.css" />
   <link rel="icon" type="image/png" href="./IMG/monkeyGames_logo.png" />
 
   <title>Monkey Games</title>
@@ -59,13 +59,13 @@
         <div class="modal-content">
           <div class="modal-body modal-container">
             <div class="">
-              <div><img src="/IMG/bimo.webp" alt="bimo" id="bim" />
+              <div><img src="./IMG/bimo.webp" alt="bimo" id="bim" />
               </div>
             </div>
             <div class="">
               <form onsubmit="validate(event,'login')">
-                <h6>Sing In here!</h6>
-                <label class="form-label mt-3" for="username">Username</label>
+                <h6>Sign In here!</h6>
+                <label class="form-label mt-3" for="username">Username or Email</label>
                 <input type="text" id="username" class="form-control form-control-lg" required />
                 <label class="form-label" for="password">Password</label>
                 <input type="password" id="password" class="form-control form-control-lg" title="8 characters minimum."
@@ -86,18 +86,18 @@
                 <h6>Register here!</h6>
                 <label class="form-label mt-3" for="newUsername">Username</label>
                 <input type="text" id="newUsername" class="form-control form-control-lg" required />
-                
+
                 <label class="form-label" for="userEmail">Email</label>
                 <input type="email" id="userEmail" class="form-control form-control-lg" required />
 
                 <label class="form-label" for="newPassword" class="cols-sm-2 control-label">Password</label>
-                <input type="password" id="newPassword" class="form-control form-control-lg" title="8 characters minimum."
-                  minlength="8" required />
+                <input type="password" id="newPassword" class="form-control form-control-lg"
+                  title="8 characters minimum." minlength="8" required />
 
                 <label for="confirm" class="cols-sm-2 control-label">Confirm password</label>
                 <input type="password" class="form-control form-control-lg" name="confirm" id="confirm" required />
 
-                <button type="submit" class="btn btn-primary mt-3" data-bs-dismiss="modal">
+                <button type="submit" class="btn btn-primary mt-3" id="createAccount">
                   Create account
               </form>
             </div>
@@ -114,11 +114,9 @@
   <main></main>
 
   <footer></footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-  <script src="/JS/app.js"></script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="./JS/app.js"></script>
 
 </html>
