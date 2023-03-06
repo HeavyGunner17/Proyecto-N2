@@ -43,6 +43,7 @@ let usuarios = [
 localStorage.setItem("user", JSON.stringify(usuarios));
 
 const table = document.getElementById("table_user");
+const btn_openModal = document.getElementById('btn_openModal');
 
 let userRegistred = JSON.parse(localStorage.getItem("user"));
 
@@ -50,7 +51,7 @@ function loadUsers() {
 
   for (user of userRegistred) {
     let row_user = document.createElement("tr");
-    table.appendChild(row);
+    table.appendChild(row_user);
 
     let id = user.id;
     let name = user.name;
@@ -62,15 +63,18 @@ function loadUsers() {
     for (dato of userData) {
       let campo = document.createElement("td");
       campo.className = "table_text";
-
       campo.textContent = dato;
+
+      if (!isNaN(dato)){
+        campo.id = "id_user"
+      }
 
       row_user.appendChild(campo);
     }
 
     let options = document.createElement("td");
     options.className = "table_text";
-    options.innerHTML += `<button class="bg-transparent border-0" onclick="open_modal ()" data-bs-toggle="modal" data-bs-target="#editUserModal">
+    options.innerHTML += `<button class="bg-transparent border-0" onclick="openModal(${id})" data-bs-toggle="modal" data-bs-target="#editUserModal">
         <i class="fa-solid fa-user-pen icon_userEdit">
         </i>
       </button>`;
@@ -79,17 +83,19 @@ function loadUsers() {
   }
 }
 
-function open_modal () {
-  
+function openModal (id) {
+  //Tomar referencia al objeto seleccionado, para cambiar el estado
+  let us = usuarios[id-1] //Obtengo el objeto seleccionado
+
+  console.log(us); 
 }
 
 function statusChange() {
   const select_status = document.getElementById("select_status");
 
   const newStatus = select_status.options[select_status.selectedIndex].text;
-
   
-
+  //Tomar la referencia al objeto selecionado y eliminarlo del localStorage y hacer un set y guardarlo con el nuevo estado
   
 }
 
