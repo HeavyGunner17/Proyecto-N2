@@ -57,18 +57,13 @@
     <div class="modal-dialog modal-xl">
       <div class="container-fluid">
         <div class="modal-content">
-          <!-- <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div> -->
-
           <div class="modal-body modal-container">
             <div class="">
               <div><img src="/IMG/bimo.webp" alt="bimo" id="bim" />
               </div>
             </div>
             <div class="">
-              <form onsubmit="validate(event)">
+              <form onsubmit="validate(event,'login')">
                 <h6>Sing In here!</h6>
                 <label class="form-label mt-3" for="username">Username</label>
                 <input type="text" id="username" class="form-control form-control-lg" required />
@@ -87,20 +82,22 @@
             </div>
 
             <div class="">
-
-              <form>
+              <form onsubmit="validate(event,'create')">
                 <h6>Register here!</h6>
                 <label class="form-label mt-3" for="newUsername">Username</label>
                 <input type="text" id="newUsername" class="form-control form-control-lg" required />
-                <label class="form-label" for="form3Example3">Email</label>
-                <input type="email" id="form3Example3" class="form-control form-control-lg" required />
+                
+                <label class="form-label" for="userEmail">Email</label>
+                <input type="email" id="userEmail" class="form-control form-control-lg" required />
 
-                <label class="form-label" for="password" class="cols-sm-2 control-label">Password</label>
-                <input type="password" id="password" class="form-control form-control-lg" title="8 characters minimum."
+                <label class="form-label" for="newPassword" class="cols-sm-2 control-label">Password</label>
+                <input type="password" id="newPassword" class="form-control form-control-lg" title="8 characters minimum."
                   minlength="8" required />
+
                 <label for="confirm" class="cols-sm-2 control-label">Confirm password</label>
                 <input type="password" class="form-control form-control-lg" name="confirm" id="confirm" required />
-                <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal">
+
+                <button type="submit" class="btn btn-primary mt-3" data-bs-dismiss="modal">
                   Create account
               </form>
             </div>
