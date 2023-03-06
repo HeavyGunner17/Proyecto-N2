@@ -18,9 +18,10 @@ query.addEventListener("keypress",async e=>{
           
           card.innerHTML=`<h2 style='color:#fff'>No existen resultados de juegos para la busqueda: <mark>${query}</mark></h2>`
         }else{
+          card.innerHTML="";
           json.results.forEach(el => {
 
-         
+            
             card.innerHTML+=
             `
             <div class="col" >
