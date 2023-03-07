@@ -59,20 +59,8 @@ body{
   color: white;
 }
 
-.item-adm:hover{
-  border-bottom: none !important;
-}
-
-#logout{
-  background-color: #485563 ;
-  color: white;
-  border: none;
-}
-
-.bot-logout{
-  overflow: hidden;
-}
 
 .icon_navbar_collapse{
   color: white;
 }
+

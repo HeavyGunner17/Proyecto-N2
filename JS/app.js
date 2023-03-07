@@ -134,3 +134,31 @@ query.addEventListener("keypress",async e=>{
   }
 })
 */
+
+
+/*FUNCION ENVIAR JUEGOS HARD COD AL LS*/
+class juegoHardCode {
+  constructor (codigo,nombre,category,descripcion,publicado) {
+    this.codigo=codigo,
+    this.nombre=nombre,
+    this.category=category,
+    this.descripcion=descripcion,
+    this.publicado=publicado}
+  }
+  let juegosHardCod =[];
+
+  function capturaJuegosPantalla (){
+  const juegosEnPantalla = document.querySelectorAll('.juegoHard');
+  for (contenedor of juegosEnPantalla){
+    let codigoJ =contenedor.querySelector('.codi').textContent;
+    let nomJ = contenedor.querySelector('.titu').textContent;
+    let categJ = contenedor.querySelector('.catego').textContent;
+    let descrJ = contenedor.querySelector('.desc').textContent;
+    let publicJ = contenedor.querySelector ('.publ').textContent;
+    let juegoPantalla = new juegoHardCode (codigoJ,nomJ,categJ,descrJ,publicJ);
+    juegosHardCod.push(juegoPantalla);
+  };
+  localStorage.setItem('juegos',JSON.stringify(juegosHardCod));
+  };
+
+  capturaJuegosPantalla();

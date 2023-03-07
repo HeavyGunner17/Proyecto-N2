@@ -1,29 +1,3 @@
-class juegoHardCode {
-  constructor (codigo,nombre,category,descripcion,publicado) {
-    this.codigo=codigo,
-    this.nombre=nombre,
-    this.category=category,
-    this.descripcion=descripcion,
-    this.publicado=publicado}
-  }
-  let juegosHardCod =[];
-
-  function capturaJuegosPantalla (){
-  const juegosEnPantalla = document.querySelectorAll('.juegoHard');
-  for (contenedor of juegosEnPantalla){
-    let codigoJ =contenedor.querySelector('.codi');
-    let nomJ = contenedor.querySelector('.titu');
-    let categJ = contenedor.querySelector('.catego');
-    let descrJ = contenedor.querySelector('.desc');
-    let publicJ = contenedor.querySelector ('.publ');
-    let juegoPantalla = new juegoHardCode (codigoJ,nomJ,categJ,descrJ,publicJ);
-    juegoHardCod.push(juegoPantalla);
-  }
-  localStorage.setItem('juegos',JSON.stringify(juegosHardCod));
-  }
-
-
-
 
 const table = document.getElementById("table-game");
 let listaJuegos = JSON.parse(localStorage.getItem("juegos"));
@@ -69,7 +43,7 @@ function cargarJuegos() {
 
     let row = document.createElement("tr");
     row.id = parseInt(juego.codigo);
-    row.className = "fil";
+    row.classList = "fil";
     let botonEliminar = document.createElement("button");
     botonEliminar.id = parseInt(juego.codigo) + 1;
     botonEliminar.onclick = () => {
@@ -85,7 +59,7 @@ function cargarJuegos() {
     let botonEditar = document.createElement("div");
     botonEditar.innerHTML =
       '<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editarJuego" data-bs-whatever="@mdo"><i class="fa-solid fa-pen-to-square text-light fs-4"></i></button>';
-    botonEditar.style = "width: 48px";
+    botonEditar.style = "width: 48px; display:flex; justify-content:center;";
     botonEditar.id = parseInt(juego.codigo) - 1;
     botonEditar.onclick = () => {
       onEdit = row.id;
@@ -127,7 +101,7 @@ function cargarJuegos() {
       row.appendChild(tableData);
     }
     let opciones = document.createElement("td");
-    opciones.classList = "d-flex justify-content-center botones";
+    opciones.classList = "d-flex justify-content-center botones text-align:center";
     opciones.append(botonEliminar, botonEditar, botonDestacar);
     row.appendChild(opciones);
   }
