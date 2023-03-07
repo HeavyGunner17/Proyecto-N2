@@ -19,7 +19,6 @@ En editar abre modal para dar de alta el usuario, suspenderlo, o dejarlo pendien
 </tr>
 */
 
-
 let usuarios = [
   {
     id: 1,
@@ -48,7 +47,6 @@ let idEdit;
 let userRegistred = JSON.parse(localStorage.getItem("user"));
 
 function loadUsers(usersLocal) {
-
   for (user of usersLocal) {
     let row_user = document.createElement("tr");
     table.appendChild(row_user);
@@ -65,8 +63,8 @@ function loadUsers(usersLocal) {
       campo.className = "table_text";
       campo.textContent = dato;
 
-      if (!isNaN(dato)){
-        campo.id = "id_user"
+      if (!isNaN(dato)) {
+        campo.id = "id_user";
       }
 
       row_user.appendChild(campo);
@@ -79,35 +77,38 @@ function loadUsers(usersLocal) {
         </i>
       </button>`;
 
-      row_user.appendChild(options);
+    row_user.appendChild(options);
   }
 }
 
 loadUsers(userRegistred);
 
-function openModal_getId (id) { //Obtengo el objeto seleccionado
-  idEdit = usuarios[id-1] 
+function openModal_getId(id) {
+  //Obtengo el objeto seleccionado
+  idEdit = usuarios[id - 1];
 }
 
 function statusChange() {
   const select_status = document.getElementById("select_status");
-
   const newStatus = select_status.options[select_status.selectedIndex].text;
+
+  const close_modal = document.getElementById("close_modal");
 
   let newUsersRegistred = JSON.parse(localStorage.getItem("user"));
 
   newUsersRegistred.map((us) => {
-    if(us.id === idEdit.id){
+    if (us.id === idEdit.id) {
       us.status = newStatus;
     }
-  })
+  });
 
   localStorage.setItem("user", JSON.stringify(newUsersRegistred));
 
   table.innerHTML = "";
-  
+
   loadUsers(newUsersRegistred);
 
+  select_status.selectedIndex = 0;
+
+  close_modal.click();
 }
-
-
