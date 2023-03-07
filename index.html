@@ -29,6 +29,8 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
+          
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item mx-2">
@@ -40,9 +42,11 @@
               <li class="nav-item mx-2">
                 <a class="nav-link" href="#">Nosotros</a>
               </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>
+
+
+              <li class="nav-item mx-2" id="navbar-login">
               </li>
+
             </ul>
           </div>
         </div>
@@ -57,21 +61,23 @@
     <div class="modal-dialog modal-xl">
       <div class="container-fluid">
         <div class="modal-content">
+
+          <div style="display: flex; justify-content: end; padding: 0.5em;">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeModal"></button>
+          </div>
+
           <div class="modal-body modal-container">
-            <div class="">
-              <div><img src="./IMG/bimo.webp" alt="bimo" id="bim" />
-              </div>
+            <div class="bimo"><img src="./IMG/bimo.webp" alt="bimo" id="bim" />
             </div>
+
             <div class="">
               <form onsubmit="validate(event,'login')">
                 <h6>Sign In here!</h6>
-                <label class="form-label mt-3" for="username">Username or Email</label>
+                <label class="form-label mt-3" for="username">Username</label>
                 <input type="text" id="username" class="form-control form-control-lg" required />
                 <label class="form-label" for="password">Password</label>
                 <input type="password" id="password" class="form-control form-control-lg" title="8 characters minimum."
                   minlength="8" required />
-                <label class="form-label" for="checkbox" id="checkbox">Remember your password</label>
-                <input type="checkbox" id="checkbox">
                 <div><a class="passRecover" href="">Did you forget your password?</a></div>
                 <div>
                   <button type="submit" class="btn btn-primary mt-3">
@@ -103,6 +109,9 @@
             </div>
           </div>
 
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          </div>
 
         </div>
       </div>
