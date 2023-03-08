@@ -1,35 +1,44 @@
-let bodyDetalle = document.getElementById('template-detail');
+const verMas = document.getElementById('detalleid');
+const car = document.getElementById('detail-template');
 
-const URL= "https://api.rawg.io/api/games?key=85458154fdcb4c3abf3290a579a65e18";
-async function getGames(url){
-    const res = await fetch(url);
-    const data= await res.json();
-    //console.log("Estoy consumiendo API");
-    console.log(data.results);
-    displayGames(data.results);
+let nombre="";
+let description="";
+let background_image="";
+
+let website ="";
+let rating="";
+let platforms=[];
+
+async function detalle(id){
+    let valor= id;
+  console.log(valor);
+  //console.log("hola desde otro lado"+ valor);
+  const api= `https://api.rawg.io/api/games/${id}?key=85458154fdcb4c3abf3290a579a65e18`
+       const res = await fetch(api);
+        const json = await res.json();
+
+       // console.log("imprimo RES",res);
+    //console.log("imprimo JSON",json.description);
+    //window.location.href="./detalle.html"
+             // car.innerHTML="";
+          
+         
+    
+    nombre =json.name;
+    description =json.description;
+    background_image =json.background_image;
+   
+    website = json.website;
+    rating= json.rating;
+    
+    //console.log(nombre, description);
+  console.log(website);
+
+//window.location.href="./detalle.html";
+//displayGames2();
+
+
 
 }
 
-function displayGames(games){
-    games.forEach(game=> {
-        const{id,name, background_image, released, rating}=game;
-        card.innerHTML+=
-        `
-        <div class="col" >
-          <div class="card h-100 border-primary text-white bg-dark">
-          <img src="${background_image}" alt="${name}" />
-            <div class="card-body">
-              <h5 class="card-title text-center">${name}</h5>              
-              <p class="card-text">id:${id}</p>
-              <p class="card-text">Released: ${released}</p>
-              <p class="card-text">Rating: ${rating}</p>
-            </div>
-            <div class="d-grid gap-2">
-                <button class="btn btn-primary" type="button">Ver Mas</button>
-            </div>
-          </div>
-        </div>
-        `;
-        
-    });
-}
+
