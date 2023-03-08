@@ -42,7 +42,7 @@ function displayGames(games){
             </div>
             <div class="d-grid gap-2">
             <button class="btn btn-outline-success"  type="button">Add to Fav</button>
-                <button class="btn btn-primary" type="button">See More</button>
+                <a href="#" class="btn btn-primary" type="button" id="detalleid" onclick="detalle(${id})">Ver Mas</a>
             </div>
           </div>
         </div>
