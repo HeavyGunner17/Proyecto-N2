@@ -1,3 +1,16 @@
+.navbar-nav > .drop-nav{
+    height: 1.2rem;
+}
+
+.icon_admin{
+    font-size: 1.5rem;
+    color: white;
+}
+
+button > .icon_admin:hover{
+    color: #2bc9c8;
+}
+
 .table_title{
     color: white;
     text-align: center;
