@@ -51,13 +51,12 @@ body{
 .navbar-nav > .li-item {
   font-size: 1.2rem;
   height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-nav > .li-item :hover {
   border-bottom: 3px solid #2bc9c8;
-  color: white;
-}
-
-.icon_navbar_collapse{
   color: white;
 }
