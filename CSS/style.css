@@ -49,7 +49,7 @@ body{
   color: white;
 }
 
-.navbar-nav > li {
+.navbar-nav > .li-item {
   font-size: 1.2rem;
   height: 1.2rem;
   display: flex;
@@ -57,7 +57,7 @@ body{
   align-items: center;
 }
 
-.navbar-nav > li :hover {
+.navbar-nav > .li-item :hover {
   border-bottom: 3px solid #2bc9c8;
   color: white;
 }
