@@ -16,7 +16,6 @@ function validatePreviousLogin() {
     }
 }
 validatePreviousLogin()
-
 function loadUsers() {
     const users = [{
         id: 1,
@@ -50,19 +49,27 @@ function loadUsers() {
         email: "pepipes@gmail.com",
         password: "pepino98",
         estado: "aprobado"
-
     }]
-
     const usersToLoad = JSON.stringify(users)
-
     localStorage.setItem('users', usersToLoad)
-    console.log(localStorage.getItem('users'), 'datos localstorage')
 }
-
 loadUsers()
-
-
-
+function getNewId() {
+    let userData = JSON.parse(localStorage.getItem('users'))
+    let currentIds = []
+    for (let i = 0; i < userData.length; i++) {
+        const element = userData[i].id;
+        currentIds.push(element)
+    }
+    return numeroDiferente(currentIds)
+}
+function numeroDiferente(array) {
+    let numero = 1;
+    while (array.includes(numero)) {
+        numero++;
+    }
+    return numero;
+}
 function redirect(moveTo) {
     switch (moveTo) {
         case "admin":
@@ -75,7 +82,6 @@ function redirect(moveTo) {
             break;
     }
 }
-
 function validate(event, type) {
     if (type == "login") {
         const isValidMail = document.getElementById("username").value
@@ -99,7 +105,6 @@ function validate(event, type) {
                 }
                 const loggedInUser = JSON.stringify(loggedIn)
                 localStorage.setItem('loggedUser', loggedInUser)
-
                 alert('Successful login')
                 redirect('user')
             } else {
@@ -122,13 +127,14 @@ function validate(event, type) {
                 username: newUser,
                 email: newMail,
                 password: newUserPass,
+                status: "pendiente",
+                id: getNewId()
             }
             let userListJSON = localStorage.getItem('users')
             let userList = JSON.parse(userListJSON)
             userList.push(user)
             let newUserList = JSON.stringify(userList)
             localStorage.setItem('users', newUserList)
-
             alert('User creation was successful')
             newUser = document.getElementById("newUsername").value = ''
             newUserPass = document.getElementById("newPassword").value = ''
@@ -144,7 +150,7 @@ function validate(event, type) {
 }
 
 
-function logout(){
+function logout() {
     localStorage.removeItem('loggedUser')
     location.reload()
 }
