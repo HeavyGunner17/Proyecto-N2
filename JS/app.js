@@ -162,3 +162,32 @@ class juegoHardCode {
   };
 
   capturaJuegosPantalla();
+
+function datosDestacado(){
+  let datosDestacado= JSON.parse(localStorage.getItem('destacado'));
+
+  let titu = document.getElementById('jdTitu');
+  let jdCateg = document.getElementById('jdCatego');
+  let jdDescrip = document.getElementById('jdDesc');
+  let jdImg = document.getElementById('portada');
+  let juegoCivil=document.getElementById('civImg');
+  let juegoCk= document.getElementById('ckImg');
+  let juegoUniver=document.getElementById('uniImg');
+  let juegoWar=document.getElementById('warImg');
+
+  titu.textContent = datosDestacado[0];
+  jdCateg.textContent = datosDestacado[1];
+  jdDescrip.textContent = datosDestacado [2];
+
+  if(datosDestacado[0]=="Civilización VI"){
+    jdImg.src=juegoCivil.src;
+  } else if(datosDestacado[0]=="Warcraft III"){
+    jdImg.src=juegoWar.src;
+  }else if(datosDestacado[0]=="Crusader Kings II"){
+    jdImg.src=juegoCk.src;
+  }else if(datosDestacado[0]=="Universalis IV"){
+    jdImg.src=juegoUniver.src;
+  };
+
+}
+datosDestacado();

@@ -79,11 +79,11 @@ function cargarJuegos() {
           botonDestacar.firstChild.style = "color:yellow !important"
         }
       }
-
-      //FALTA AGREGAR FUNCION REALCIONADA A LA PAGINA PRINCIPAL
-      
-      
-    }
+      let datosDestacado = [name,cat,descr]
+      localStorage.setItem('destacado', JSON.stringify(datosDestacado));
+      console.log(datosDestacado);
+     
+  }
     botonEliminar.innerHTML =
       '<i class="fa-solid fa-trash text-light fs-4"></i>';
     botonDestacar.innerHTML =

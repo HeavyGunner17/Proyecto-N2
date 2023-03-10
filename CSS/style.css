@@ -64,3 +64,8 @@ body{
   color: white;
 }
 
+.destac-img{
+  width: 600px;
+  height: 350px;
+  object-fit: fill;
+}
