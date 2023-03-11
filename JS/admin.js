@@ -71,6 +71,7 @@ function cargarJuegos() {
     let botonDestacar = document.createElement("button");
     botonDestacar.id = parseInt(juego.codigo) - 2;
     botonDestacar.onclick = () => {
+      localStorage.setItem('color',botonDestacar.id);
       let botones = document.querySelectorAll('.botones');
       for(botonera of botones){
         if(botonera.lastChild.firstChild.style.color=='yellow'){
@@ -175,3 +176,12 @@ function editarJuego() {
   }
 
 }
+
+function validColorStar(){
+  let colorStar = localStorage.getItem('color');
+  let star = document.getElementById (colorStar);
+  console.log(star);
+  star.firstChild.style ="color: yellow !important";
+};
+
+validColorStar();
