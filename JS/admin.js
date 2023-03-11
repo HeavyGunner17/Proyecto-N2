@@ -1,3 +1,4 @@
+
 const table = document.getElementById("table-game");
 let listaJuegos = JSON.parse(localStorage.getItem("juegos"));
 let onEdit;
@@ -42,7 +43,7 @@ function cargarJuegos() {
 
     let row = document.createElement("tr");
     row.id = parseInt(juego.codigo);
-    row.className = "fil";
+    row.classList = "fil";
     let botonEliminar = document.createElement("button");
     botonEliminar.id = parseInt(juego.codigo) + 1;
     botonEliminar.onclick = () => {
@@ -58,7 +59,7 @@ function cargarJuegos() {
     let botonEditar = document.createElement("div");
     botonEditar.innerHTML =
       '<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editarJuego" data-bs-whatever="@mdo"><i class="fa-solid fa-pen-to-square text-light fs-4"></i></button>';
-    botonEditar.style = "width: 48px";
+    botonEditar.style = "width: 48px; display:flex; justify-content:center;";
     botonEditar.id = parseInt(juego.codigo) - 1;
     botonEditar.onclick = () => {
       onEdit = row.id;
@@ -70,6 +71,7 @@ function cargarJuegos() {
     let botonDestacar = document.createElement("button");
     botonDestacar.id = parseInt(juego.codigo) - 2;
     botonDestacar.onclick = () => {
+      localStorage.setItem('color',botonDestacar.id);
       let botones = document.querySelectorAll('.botones');
       for(botonera of botones){
         if(botonera.lastChild.firstChild.style.color=='yellow'){
@@ -78,11 +80,11 @@ function cargarJuegos() {
           botonDestacar.firstChild.style = "color:yellow !important"
         }
       }
-
-      //FALTA AGREGAR FUNCION REALCIONADA A LA PAGINA PRINCIPAL
-      
-      
-    }
+      let datosDestacado = [name,cat,descr]
+      localStorage.setItem('destacado', JSON.stringify(datosDestacado));
+      console.log(datosDestacado);
+     
+  }
     botonEliminar.innerHTML =
       '<i class="fa-solid fa-trash text-light fs-4"></i>';
     botonDestacar.innerHTML =
@@ -100,7 +102,7 @@ function cargarJuegos() {
       row.appendChild(tableData);
     }
     let opciones = document.createElement("td");
-    opciones.classList = "d-flex justify-content-center botones";
+    opciones.classList = "d-flex justify-content-center botones text-align:center";
     opciones.append(botonEliminar, botonEditar, botonDestacar);
     row.appendChild(opciones);
   }
@@ -174,3 +176,12 @@ function editarJuego() {
   }
 
 }
+
+function validColorStar(){
+  let colorStar = localStorage.getItem('color');
+  let star = document.getElementById (colorStar);
+  console.log(star);
+  star.firstChild.style ="color: yellow !important";
+};
+
+validColorStar();
