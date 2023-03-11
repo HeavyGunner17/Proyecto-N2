@@ -1,0 +1,24 @@
+@media screen and (max-width:991px ) {
+    .celda{
+      max-height: 209px !important ;
+      padding: 0 !important;
+    }
+    .botones{
+      padding: 0 !important;
+      min-height: 209px;
+    }
+  }
+
+  .item-adm:hover{
+    border-bottom: none !important;
+  }
+  
+  #logout{
+    background-color: #485563 ;
+    color: white;
+    border: none;
+  }
+  
+  .bot-logout{
+    overflow: hidden;
+  }

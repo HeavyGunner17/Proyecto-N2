@@ -20,6 +20,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/adminJuegos.css" />
     <link rel="icon" type="image/png" href="./IMG/monkeyGames_logo.png"/>
 
     <title>Monkey Games</title>
@@ -88,11 +89,11 @@
             <input type="number" class="form-control dato" id="recipient-code" required>
           </div>
           <div class="mb-3">
-            <label for="recipient-code" class="col-form-label">Nombre:</label>
+            <label for="recipient-name" class="col-form-label">Nombre:</label>
             <input type="text" class="form-control dato" id="recipient-name" required>
           </div>
           <div class="mb-3">
-            <label for="recipient-code" class="col-form-label">Categoría:</label>
+            <label for="recipient-category" class="col-form-label">Categoría:</label>
             <input type="text" class="form-control dato" id="recipient-category" required>
           </div>
           <div class="mb-3">
@@ -100,7 +101,7 @@
             <textarea class="form-control dato" id="message-text" required></textarea>
           </div>
           <div class="mb-3">
-            <label for="recipient-code" class="col-form-label">Publicado:</label>
+            <label for="published" class="col-form-label">Publicado:</label>
             <select name="published" id="published" class="dato">
               <option value="SI">SI</option>
               <option value="NO">NO</option>
@@ -112,6 +113,50 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="cerrarModal">Cerrar</button>
         <button onclick="agregarJuego()" type="button" class="btn btn-secondary" id="graba-juego-table">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Fin modal-->
+<!--Modal Editar Juego-->
+<div class="modal fade" id="editarJuego" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">Datos del Juego</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="inp-codigo" class="col-form-label">Código:</label>
+            <input type="number" class="form-control dato" id="inp-codigo" required>
+          </div>
+          <div class="mb-3">
+            <label for="inp-nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control dato" id="inp-nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="inp-categ" class="col-form-label">Categoría:</label>
+            <input type="text" class="form-control dato" id="inp-categ" required>
+          </div>
+          <div class="mb-3">
+            <label for="descri" class="col-form-label">Descripción:</label>
+            <textarea class="form-control dato" id="descri" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="publicado" class="col-form-label">Publicado:</label>
+            <select name="publicado" id="publicado" class="dato">
+              <option value="SI">SI</option>
+              <option value="NO">NO</option>
+            </select>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="cerrarModal">Cerrar</button>
+        <button onclick="editarJuego()" type="button" class="btn btn-secondary" id="graba-juego-table">Editar</button>
       </div>
     </div>
   </div>
