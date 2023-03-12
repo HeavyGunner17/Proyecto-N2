@@ -17,42 +17,60 @@ function validatePreviousLogin() {
 }
 validatePreviousLogin()
 function loadUsers() {
-    const users = [{
-        id: 1,
-        username: "rodri8935",
-        email: "rodrigo8935@gmail.com",
-        password: "rodrigo123",
-        estado: "pendiente"
-    }, {
-        id: 2,
-        username: "macacorrea715",
-        email: "macacorrea715@gmail.com",
-        password: "maca715unodos",
-        estado: "pendiente"
-    }, {
-        id: 3,
-        username: "liomessi",
-        email: "liomessi@gmail.com",
-        password: "quemirabobo",
-        estado: "pendiente"
-    },
-    {
-        id: 4,
-        username: "robert17",
-        email: "robert17@hotmail.com",
-        password: "robert96",
-        estado: "aprobado"
-    },
-    {
-        id: 5,
-        username: "pepino25",
-        email: "pepipes@gmail.com",
-        password: "pepino98",
-        estado: "aprobado"
-    }]
-    const usersToLoad = JSON.stringify(users)
-    localStorage.setItem('users', usersToLoad)
+    let data = localStorage.getItem('users')
+    if (!data) {
+        const users = [{
+            id: 1,
+            username: "rodri8935",
+            email: "rodrigo8935@gmail.com",
+            password: "rodrigo123",
+            estado: "pendiente",
+            securityQuestion: `What is your dog's name?`,
+            securityAnswer: `Oliver`
+        }, {
+            id: 2,
+            username: "macacorrea715",
+            email: "macacorrea715@gmail.com",
+            password: "maca715unodos",
+            estado: "pendiente",
+            securityQuestion: `What is your dog's name?`,
+            securityAnswer: `Mora`
+        }, {
+            id: 3,
+            username: "liomessi",
+            email: "liomessi@gmail.com",
+            password: "quemirabobo",
+            estado: "pendiente",
+            securityQuestion: `What is your cat's name?`,
+            securityAnswer: `Rosa`
+        },
+        {
+            id: 4,
+            username: "robert17",
+            email: "robert17@hotmail.com",
+            password: "robert96",
+            estado: "aprobado",
+            securityQuestion: `What is your cat's name?`,
+            securityAnswer: `Maia`
+        },
+        {
+            id: 5,
+            username: "pepino25",
+            email: "pepipes@gmail.com",
+            password: "pepino98",
+            estado: "aprobado",
+            securityQuestion: `What is your mother's name?`,
+            securityAnswer: `Mary`
+        }]
+        const usersToLoad = JSON.stringify(users)
+        localStorage.setItem('users', usersToLoad)
+    } else {
+        return;
+    }
 }
+
+
+
 loadUsers()
 function getNewId() {
     let userData = JSON.parse(localStorage.getItem('users'))
