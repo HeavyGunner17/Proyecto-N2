@@ -1,29 +1,8 @@
-let usuarios = [
-  {
-    id: 1,
-    name: "Rodrigo Brizuela",
-    email: "rodrigo8935@gmail.com",
-    status: "Pendiente",
-  },
-  {
-    id: 2,
-    name: "Macarena Correa",
-    email: "macacorrea715@gmail.com",
-    status: "Pendiente",
-  },
-  {
-    id: 3,
-    name: "Lionel Messi",
-    email: "liomessi@gmail.com",
-    status: "Pendiente",
-  },
-];
-localStorage.setItem("user", JSON.stringify(usuarios));
-
 const table = document.getElementById("table_user");
 let idEdit;
+const logout_li = document.getElementById('logout_admin');
 
-let userRegistred = JSON.parse(localStorage.getItem("user"));
+let userRegistred = JSON.parse(localStorage.getItem("users"));
 
 function loadUsers(usersLocal) {
   for (user of usersLocal) {
@@ -31,11 +10,11 @@ function loadUsers(usersLocal) {
     table.appendChild(row_user);
 
     let id = user.id;
-    let name = user.name;
+    let username = user.username;
     let email = user.email;
-    let status = user.status;
+    let status = user.estado;
 
-    let userData = [id, name, email, status];
+    let userData = [id, username, email, status];
 
     for (dato of userData) {
       let campo = document.createElement("td");
@@ -72,7 +51,7 @@ function statusChange() {
 
   const close_modal = document.getElementById("close_modal");
 
-  let newUsersRegistred = JSON.parse(localStorage.getItem("user"));
+  let newUsersRegistred = JSON.parse(localStorage.getItem("users"));
 
   newUsersRegistred.map((us) => {
     if (us.id === idEdit.id) {
@@ -80,7 +59,7 @@ function statusChange() {
     }
   });
 
-  localStorage.setItem("user", JSON.stringify(newUsersRegistred));
+  localStorage.setItem("users", JSON.stringify(newUsersRegistred));
 
   table.innerHTML = "";
 
@@ -89,4 +68,10 @@ function statusChange() {
   select_status.selectedIndex = 0;
 
   close_modal.click();
+}
+
+logout_li.addEventListener('click', logout())
+
+function logout () {
+  localStorage.removeItem('loggedUser')
 }
