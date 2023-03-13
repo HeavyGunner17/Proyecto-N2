@@ -15,7 +15,7 @@ async function getGames(url){
     //juegos.push(...data.results);
 
 
-    console.log(data.results);
+   // console.log(data.results);
     displayGames(data.results);
     
 }
@@ -70,7 +70,7 @@ async function detalle(id){
         const json = await res.json();
         const modal = document.getElementById('modal-detail')
        // console.log("imprimo RES",res);
-    //console.log("imprimo JSON",json.description);
+    console.log("imprimo Detalles",json);
     //window.location.href="./detalle.html"
               modal.innerHTML="";
           modal. innerHTML+=`
@@ -86,6 +86,9 @@ async function detalle(id){
         <p class="card-text">Rating: ${json.rating}</p>
         <p class="card-text">Description: ${json.description}</p>
         
+        <p>Website: <a href="${json.website}">${json.website}</a></p>
+        
+        
         </div>
        
         <div class="modal-footer">
@@ -97,11 +100,11 @@ async function detalle(id){
           `
       
     
-    //console.log(nombre, description);
-  console.log(json.website);
   
-  //window.location.href="./detalle.html";
-  //displayGames2();
+  //console.log(json.website);
+  
+  
+  
   
   
   
@@ -115,7 +118,7 @@ async function detalle(id){
 getGames(URL)
 .then(
   (r)=>{
-    console.log("Se esta Ejecutando la promesa");
+    //console.log("Se esta Ejecutando la promesa");
   }
 )
 .catch((e)=>{console.warn(e);});
