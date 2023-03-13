@@ -21,10 +21,6 @@ function loadUsers(usersLocal) {
       campo.className = "table_text";
       campo.textContent = dato;
 
-      if (!isNaN(dato)) {
-        campo.id = "id_user";
-      }
-
       row_user.appendChild(campo);
     }
 
@@ -42,7 +38,7 @@ function loadUsers(usersLocal) {
 loadUsers(userRegistred);
 
 function openModal_getId(id) {
-  idEdit = usuarios[id - 1];
+  idEdit = userRegistred[id - 1];
 }
 
 function statusChange() {
@@ -55,7 +51,7 @@ function statusChange() {
 
   newUsersRegistred.map((us) => {
     if (us.id === idEdit.id) {
-      us.status = newStatus;
+      us.estado = newStatus;
     }
   });
 
@@ -73,5 +69,5 @@ function statusChange() {
 logout_li.addEventListener('click', logout())
 
 function logout () {
-  localStorage.removeItem('loggedUser')
+  localStorage.removeItem('loggedUser');
 }
