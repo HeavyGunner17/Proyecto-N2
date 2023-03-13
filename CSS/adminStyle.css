@@ -1,0 +1,34 @@
+.navbar-nav > .drop-nav{
+    height: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_admin{
+    font-size: 1.5rem;
+    color: white;
+}
+
+button > .icon_admin:hover{
+    color: #2bc9c8;
+}
+
+.table_title{
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.table_text{
+    color: rgba(255, 255, 255, 0.61);
+    text-align: center;
+}
+
+.icon_userEdit{
+    color: white;
+}
+
+.icon_userEdit:hover{
+    color: #2bc9c8;
+}
