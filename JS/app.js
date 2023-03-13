@@ -30,19 +30,29 @@ function displayGames(games){
         
         card.innerHTML+=
         `
+        <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="modal-detail">
+     
+    </div>
+  </div>
+</div>
+
+
         <div class="col" >
           <div class="card h-100 border-primary text-white bg-dark">
-          <img src="${background_image}" alt="${name}"  class="h-50"/>
+          <img src="${background_image}" alt="${name}" class="h-50"/>
             <div class="card-body">
               <h5 class="card-title text-center">${name}</h5>              
-              <p class="card-text">id:${id}</p>
-              <p class="card-text">Released: ${released}</p>
-              <p class="card-text">Rating: ${rating}</p>
               
+             
             </div>
             <div class="d-grid gap-2">
-            <button class="btn btn-outline-success"  type="button">Add to Fav</button>
-                <button class="btn btn-primary" type="button">See More</button>
+               
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="detalleid" onclick="detalle(${id})">
+                See More 
+                </button>
             </div>
           </div>
         </div>
@@ -50,6 +60,56 @@ function displayGames(games){
         
     });
 }
+
+async function detalle(id){
+    let valor= id;
+  console.log(valor);
+  //console.log("hola desde otro lado"+ valor);
+  const api= `https://api.rawg.io/api/games/${id}?key=85458154fdcb4c3abf3290a579a65e18`
+       const res = await fetch(api);
+        const json = await res.json();
+        const modal = document.getElementById('modal-detail')
+       // console.log("imprimo RES",res);
+    //console.log("imprimo JSON",json.description);
+    //window.location.href="./detalle.html"
+              modal.innerHTML="";
+          modal. innerHTML+=`
+          
+          <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">${json.name}</h5>
+  
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <img src="${json.background_image}" alt="${json.name}"  class="w-50"/>
+        <p class="card-text">Released: ${json.released}</p>
+        <p class="card-text">Rating: ${json.rating}</p>
+        <p class="card-text">Description: ${json.description}</p>
+        
+        </div>
+       
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          
+        </div>
+          
+          
+          `
+      
+    
+    //console.log(nombre, description);
+  console.log(json.website);
+  
+  //window.location.href="./detalle.html";
+  //displayGames2();
+  
+  
+  
+  }
+  
+  
+
+
 
 
 getGames(URL)
