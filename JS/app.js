@@ -20,15 +20,14 @@ function loadUsers() {
     let data = localStorage.getItem('users')
     if (!data) {
         const users = [{
-            id:0,
+            id: 0,
             username: "admin",
             email: "admin17@gmail.com",
             password: "admin123",
             estado: "aprobado",
             securityQuestion: "What is your favorite color?",
             securityAnswer: "blue"
-
-        }, {   
+        }, {
             id: 1,
             username: "rodri8935",
             email: "rodrigo8935@gmail.com",
@@ -77,9 +76,6 @@ function loadUsers() {
         return;
     }
 }
-
-
-
 loadUsers()
 function getNewId() {
     let userData = JSON.parse(localStorage.getItem('users'))
@@ -91,7 +87,7 @@ function getNewId() {
     return numeroDiferente(currentIds)
 }
 function numeroDiferente(array) {
-    let numero = 0;
+    let numero = 1;
     while (array.includes(numero)) {
         numero++;
     }
@@ -148,12 +144,16 @@ function validate(event, type) {
         let newUserPass = document.getElementById("newPassword").value
         let newUserPassConfirm = document.getElementById("confirm").value
         let newMail = document.getElementById("userEmail").value
+        let newSecurityQuestion = document.getElementById("securityQuestion").value
+        let newSecurityAnswer = document.getElementById("securityAnswer").value
         if (newUserPass == newUserPassConfirm) {
             const user =
             {
                 username: newUser,
                 email: newMail,
                 password: newUserPass,
+                securityQuestion: newSecurityQuestion,
+                securityAnswer: newSecurityAnswer,
                 status: "pendiente",
                 id: getNewId()
             }
@@ -168,6 +168,8 @@ function validate(event, type) {
             newUserPassConfirm = document.getElementById("confirm").value = ''
             newMail = document.getElementById("userEmail").value = ''
             document.getElementById('closeModal').click()
+            console.log(user,'variable usuario')
+            console.log(JSON.parse(localStorage.getItem('users')))
         } else {
             alert("The passwords are different")
         }
