@@ -2,32 +2,85 @@ const nombre = document.getElementById("nombre");
 const email = document.getElementById("email");
 const contacto = document.getElementById("comentario");
 
-const datos = [nombre,email,contacto];
+console.log("nombre.value", nombre.value);
 
-function validacion (){
-if(nombre.value !== "" && email.value !== ""|| mail() && contacto.value !== ""){
-    alert("mensaje enviado");
-    //funcion de envio de mail
-    for(dato of datos){
-        dato.value="";
-    }
-
-}else{
-    alert("Algun campo incompleto");
-
-}
-
-}
-
-
-
-function mail (){
-    if(!email.value.includes("@")){
-        alert("email incorrecto");
-        email.focus();
-        return true;
+function registro (){
+    if(nombre.value === ""){
+        console.log("vacio");
+    } else {
+        console.log("no vacio")
     }
 }
+
+nombre.addEventListener("input", function (event){
+    console.log(event.target.value);
+});
+
+email.addEventListener("input", function (event){
+    console.log(event.target.value);
+});
+
+contacto.addEventListener("input", function (event){
+    console.log(event.target.value);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //const datos = [nombre,email,contacto];
+
+    //function validacion (){
+    //if(nombre.value !== "" && email.value !== ""|| mail() && contacto.value !== ""){
+    //  alert("mensaje enviado");
+    //  //funcion de envio de mail
+    // for(dato of datos){
+    //    dato.value="";
+    // }
+
+    //}else{
+    //   alert("Algun campo incompleto");
+
+    //}
+
+    //}
+
+
+
+    function mail() {
+        if (!email.value.includes("@")) {
+            alert("email incorrecto");
+            email.focus();
+            return true;
+        }
+    }
 
 
 
