@@ -20,6 +20,15 @@ function loadUsers() {
     let data = localStorage.getItem('users')
     if (!data) {
         const users = [{
+            id:0,
+            username: "admin",
+            email: "admin17@gmail.com",
+            password: "admin123",
+            estado: "aprobado",
+            securityQuestion: "What is your favorite color?",
+            securityAnswer: "blue"
+
+        }, {   
             id: 1,
             username: "rodri8935",
             email: "rodrigo8935@gmail.com",
@@ -82,7 +91,7 @@ function getNewId() {
     return numeroDiferente(currentIds)
 }
 function numeroDiferente(array) {
-    let numero = 1;
+    let numero = 0;
     while (array.includes(numero)) {
         numero++;
     }
