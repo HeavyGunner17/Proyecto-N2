@@ -2,7 +2,7 @@ const nombre = document.getElementById("nombre");
 const email = document.getElementById("email");
 const contacto = document.getElementById("comentario");
 
-console.log("nombre.value", nombre.value);
+
 
 function registro (){
     if(nombre.value === ""){
@@ -17,7 +17,7 @@ nombre.addEventListener("input", function (event){
 });
 
 email.addEventListener("input", function (event){
-    console.log(event.target.value);
+    let email = (event.target.value);
 });
 
 contacto.addEventListener("input", function (event){
