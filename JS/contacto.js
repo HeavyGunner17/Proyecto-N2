@@ -3,55 +3,23 @@ const email = document.getElementById("email");
 const contacto = document.getElementById("comentario");
 
 function enviarComment(){
-    alert('Your comment was sent');
-    location.reload();
+    let regexp = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
+if (nombre.value !="" && nombre.value.length < 20 && nombre.value.length > 10){
+    if(email.value != "" && regexp.test(email.value) ){
+        if (contacto.value != "" && contacto.value.length < 100 && contacto.value.length > 10){
+
+            alert('Your comment was sent');
+            location.reload();
+        }else {alert("please add a valid comment")};
+    }else {alert("please add a valid email")};
+}else {alert("please add a valid name");
+};
 }
 
-nombre.addEventListener("input", function (event){
-    let nombreCompleto= event.target.value;
-    
-    if(nombreCompleto.length > 20){
-        alert("This name is invalid");
-        nombre.style= "background-color: tomato";
-    } else if (nombreCompleto.length == 0){
-        nombre.style = "background-color: white";
-    }
-    else if(nombreCompleto.length < 10){
-        nombre.style= "background-color: tomato";
-    } else {
-        nombre.style= "background-color: lightgreen";
-    }
-    
-});
 
-email.addEventListener("input", function (event){
-    if(nombre.value != '' && nombre.style.backgroundColor=="lightgreen"){
-        let mail = event.target.value;
-        if(email.value.includes("@") && email.value.includes(".com") && mail.length <30 ){
-            email.style= "background-color: lightgreen";
-        } else if (mail.length == 0){
-            email.style = "background-color: white";
-        }
-        else{
-            email.style= "background-color: tomato";
-        } ;
 
-    } else{
-        alert("Complete with a valid name");
-        email.value='';
-    }
-    ;
 
-});
 
-contacto.addEventListener("input", function (event){
-    if(email.value == '' || nombre.value =='' || email.style.backgroundColor == "tomato" || nombre.style.backgroundColor == "tomato" ){
-        alert("Complete the other slot for can continue");
-            contacto.value= '';
-    }
-    
-    }
-);
 
 
 
