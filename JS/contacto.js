@@ -2,23 +2,56 @@ const nombre = document.getElementById("nombre");
 const email = document.getElementById("email");
 const contacto = document.getElementById("comentario");
 
-
-
-function registro (){
-    let valEmail = email.value 
+function enviarComment(){
+    alert('Your comment was sent');
+    location.reload();
 }
 
 nombre.addEventListener("input", function (event){
-    console.log(event.target.value);
+    let nombreCompleto= event.target.value;
+    
+    if(nombreCompleto.length > 20){
+        alert("This name is invalid");
+        nombre.style= "background-color: tomato";
+    } else if (nombreCompleto.length == 0){
+        nombre.style = "background-color: white";
+    }
+    else if(nombreCompleto.length < 10){
+        nombre.style= "background-color: tomato";
+    } else {
+        nombre.style= "background-color: lightgreen";
+    }
+    
 });
 
 email.addEventListener("input", function (event){
-    let email = (event.target.value);
+    if(nombre.value != '' && nombre.style.backgroundColor=="lightgreen"){
+        let mail = event.target.value;
+        if(email.value.includes("@") && email.value.includes(".com") && mail.length <30 ){
+            email.style= "background-color: lightgreen";
+        } else if (mail.length == 0){
+            email.style = "background-color: white";
+        }
+        else{
+            email.style= "background-color: tomato";
+        } ;
+
+    } else{
+        alert("Complete with a valid name");
+        email.value='';
+    }
+    ;
+
 });
 
 contacto.addEventListener("input", function (event){
-    console.log(event.target.value);
-});
+    if(email.value == '' || nombre.value =='' || email.style.backgroundColor == "tomato" || nombre.style.backgroundColor == "tomato" ){
+        alert("Complete the other slot for can continue");
+            contacto.value= '';
+    }
+    
+    }
+);
 
 
 
