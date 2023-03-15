@@ -5,11 +5,7 @@ const contacto = document.getElementById("comentario");
 
 
 function registro (){
-    if(nombre.value === ""){
-        console.log("vacio");
-    } else {
-        console.log("no vacio")
-    }
+    let valEmail = email.value 
 }
 
 nombre.addEventListener("input", function (event){
