@@ -41,7 +41,7 @@ const api= `https://api.rawg.io/api/games/${valor}?key=85458154fdcb4c3abf3290a57
              <p> Rating: <span class="fw-bold">${json.rating}</span></p>
             </p>
             <div>
-            <a class="btn btn-success" href="./404.html"><i class="fa-sharp fa-solid fa-cart-shopping"> Shop Now!</i></a>
+            <a class="btn btn-success" href="./error404.html"><i class="fa-sharp fa-solid fa-cart-shopping"> Shop Now!</i></a>
             </div>
           </div>
         </div>
