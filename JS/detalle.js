@@ -76,16 +76,23 @@ const getMovies = async()=>{
   //console.log(json.results);
   const videos = document.querySelector('#videos-container')
   videos.innerHTML=""
-  json.results.map((video)=>{
-    const col = document.createElement('div');
-    col.className="col";
-    const tarjeta = `
-    <div class="card " >
-    <video src=${video.data.max} controls>
-    </div>
-    `
-    col.innerHTML=tarjeta;
-    videos.append(col);
+  json.results.map((video, index)=>{
+
+if(index===0){
+  //let solo =video.data.max
+  
+  const col = document.createElement('div');
+  col.className="container";
+  const tarjeta = `
+  
+  <div class="card border-0">
+ 
+  <video class="text-center" src=${video.data.max} controls >
+  </div>
+  `
+  col.innerHTML=tarjeta;
+  videos.append(col);
+}
   })
 }
 
