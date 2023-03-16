@@ -25,7 +25,15 @@ function changeUserPassword() {
     let newUserData = JSON.stringify(users)
     localStorage.setItem('users', newUserData)
     console.log(JSON.parse(localStorage.getItem('users')))
-    alert('Password succesfully changed')
+    Swal.fire({
+        icon: 'success',
+        title: 'Congratulations',
+        html:
+            'The <b>passwords</b> ' +
+            'has been successfully changed',
+        showConfirmButton: false,
+        timer: 1500
+    })
 }
 function validateInput() {
     let usernameInput = document.getElementById('username').value
@@ -37,10 +45,9 @@ function validateInput() {
         document.getElementById('password').disabled = false
         document.getElementById('password-change').disabled = false
         document.getElementById('securityQuestion').disabled = false
-        alert('Correctly Validated')
         let userSecurityQuestion = getSecurityQuestion(foundUser)
         document.getElementById('security-question-label').innerHTML = `${userSecurityQuestion}`
     } else {
-        alert('You are changing your password.')
+        Swal.fire({ icon: 'success', html: 'You have changed your password.', confirmButtonColor: '#269cb5' })
     }
 }
