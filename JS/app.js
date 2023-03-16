@@ -7,7 +7,7 @@ function validatePreviousLogin() {
         <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown">${loggeduser.user}</a>  
         <ul class="dropdown-menu">
         <li class="dropdown-user"><a class="dropdown-item" href="#">View Profile</a></li>
-        <li class="dropdown-user"><a class="dropdown-item" href="#" onclick="logout()">Logout</a></li>
+        <li class="dropdown-user"><a class="dropdown-item" href="#" onclick="confirmLogout()">Logout</a></li>
         </ul>
         </div>`
     } else {
@@ -105,7 +105,7 @@ function redirect(moveTo) {
             break;
     }
 }
-function validate(event, type) {
+async function validate(event, type) {
     if (type == "login") {
         const isValidMail = document.getElementById("username").value
         const isValidPass = document.getElementById("password").value
@@ -128,14 +128,23 @@ function validate(event, type) {
                 }
                 const loggedInUser = JSON.stringify(loggedIn)
                 localStorage.setItem('loggedUser', loggedInUser)
-                alert('Successful login')
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Congratulations', text: 'You have successfully logged in', timer: 3000, showConfirmButton: false
+                })
                 redirect('user')
             } else {
-                alert('Wrong Password or user is not allowed')
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...', html: 'The <b>username</b> or the <b>password</b> introduced is <b>wrong</b>', timer: 3000, showConfirmButton: false
+                })
             }
         }
         else {
-            alert('The user does not exist')
+            await Swal.fire({
+                icon: 'error',
+                title: 'Oops...', html: 'The <b>user</b> does not <b>exist</b>', timer: 3000, showConfirmButton: false
+            })
         }
     }
     else if (type == "create") {
@@ -146,40 +155,102 @@ function validate(event, type) {
         let newMail = document.getElementById("userEmail").value
         let newSecurityQuestion = document.getElementById("securityQuestion").value
         let newSecurityAnswer = document.getElementById("securityAnswer").value
-        if (newUserPass == newUserPassConfirm) {
-            const user =
-            {
-                username: newUser,
-                email: newMail,
-                password: newUserPass,
-                securityQuestion: newSecurityQuestion,
-                securityAnswer: newSecurityAnswer,
-                status: "pendiente",
-                id: getNewId()
+        let users = JSON.parse(localStorage.getItem('users'))
+        const foundUser = users.find(({ username }) => username == newUser)
+        const foundEmail = users.find(({ email }) => email == newMail)
+        if (!foundUser && !foundEmail) {
+            if (newUserPass == newUserPassConfirm) {
+                const user =
+                {
+                    username: newUser,
+                    email: newMail,
+                    password: newUserPass,
+                    securityQuestion: newSecurityQuestion,
+                    securityAnswer: newSecurityAnswer,
+                    status: "pendiente",
+                    id: getNewId()
+                }
+                let userListJSON = localStorage.getItem('users')
+                let userList = JSON.parse(userListJSON)
+                userList.push(user)
+                let newUserList = JSON.stringify(userList)
+                localStorage.setItem('users', newUserList)
+                Swal.fire('User creation was successful')
+                Email.send({
+                    Host: "smtp.elasticemail.com",
+                    Username: "ana_sofia_400@hotmail.com",
+                    Password: "BF9814EDF771B794050C9C30EF64741600CE",
+                    To: 'ana_sofia_400@hotmail.com',
+                    From: "ana_sofia_400@hotmail.com",
+                    Subject: "New User",
+                    Body: `<html>A new user has been registered with the username of: ${user.username}<br>
+                    The email of: ${user.email}<br>
+                    and an id of: ${user.id}
+                    </html>`
+                })
+                newUser = document.getElementById("newUsername").value = ''
+                newUserPass = document.getElementById("newPassword").value = ''
+                newUserPassConfirm = document.getElementById("confirm").value = ''
+                newMail = document.getElementById("userEmail").value = ''
+                document.getElementById('closeModal').click()
+                console.log(user, 'variable usuario')
+                console.log(JSON.parse(localStorage.getItem('users')))
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    html:
+                        'The <b>passwords</b> ' +
+                        'that have been written ' +
+                        'are <b>different</b>',
+                    timer: 4500,
+                    confirmButtonColor: '#269cb5'
+                })
             }
-            let userListJSON = localStorage.getItem('users')
-            let userList = JSON.parse(userListJSON)
-            userList.push(user)
-            let newUserList = JSON.stringify(userList)
-            localStorage.setItem('users', newUserList)
-            alert('User creation was successful')
-            newUser = document.getElementById("newUsername").value = ''
-            newUserPass = document.getElementById("newPassword").value = ''
-            newUserPassConfirm = document.getElementById("confirm").value = ''
-            newMail = document.getElementById("userEmail").value = ''
-            document.getElementById('closeModal').click()
-            console.log(user,'variable usuario')
-            console.log(JSON.parse(localStorage.getItem('users')))
         } else {
-            alert("The passwords are different")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Username or email is already in use!',
+                html:
+                    'The <b>username or email</b> ' +
+                    'that has been written ' +
+                    'is <b>already in use</b>',
+                timer: 4500,
+                confirmButtonColor: '#269cb5'
+            })
         }
     } else {
-        alert("There has been an error.")
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            showConfirmButton: false,
+            timer: 1500
+        })
     }
 }
-
 
 function logout() {
     localStorage.removeItem('loggedUser')
     location.reload()
+}
+
+function confirmLogout() {
+    Swal.fire({
+        title: 'Are you sure you want to log out??',
+        icon: 'info',
+        showDenyButton: true,
+        confirmButtonText: 'Yes, i want to leave',
+        confirmButtonColor: '#269cb5',
+        denyButtonText: `Stay`,
+        denyButtonColor: '#44b91f',
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            await Swal.fire({ text: 'You have successfully logged out!', icon: 'success', confirmButtonColor: '#269cb5'})
+            logout()
+        } else if (result.isDenied) {
+            Swal.fire({ text: 'You chose to stay signed in', icon: 'info', })
+        }
+    })
 }
