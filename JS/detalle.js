@@ -84,7 +84,7 @@ if(index===0){
   const col = document.createElement('div');
   col.className="container";
   const tarjeta = `
-  
+  <h3 class="text-center">Trailer</h3>
   <div class="card border-0">
  
   <video class="text-center" src=${video.data.max} controls >
