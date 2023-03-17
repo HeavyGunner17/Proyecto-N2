@@ -21,44 +21,49 @@ async function getGames(url){
 }
 
 
-
-function displayGames(games){
-
-
-    games.forEach(game=> {
-        const{id,name, background_image, released, rating}=game;
+function displayGames(games) {
+    let coso=[];
+    
+      games.forEach(game => {
+        const { id, name, background_image, released, rating ,genres} = game;
         
-        card.innerHTML+=
-        `
-        <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" id="modal-detail">
-     
-    </div>
-  </div>
-</div>
-
-
-        <div class="col" >
-          <div class="card h-100 border-primary text-white bg-dark">
-          <img src="${background_image}" alt="${name}" class="h-50"/>
-            <div class="card-body">
-              <h5 class="card-title text-center">${name}</h5>              
+          
+       
+        card.innerHTML +=
+          `
+            <div class="col" >
+              <div class="card h-100 border-primary text-white bg-dark">
               
-             
+              <img src="${background_image}" alt="${name}" class="h-50" />
+                <div class="card-body">
+                  <h5 class="card-title text-center">${name}</h5>                                               
+                </div>
+                <div class="d-grid gap-2"> 
+                <a class="btn btn-outline-success" href="./error404.html"><i class="fa-sharp fa-solid fa-cart-shopping"> Shop Now!</i></a>                                     
+                    <a  href="../Paginas/detalles.html" class="btn btn-primary" onclick="capturar(${id})">    
+                    See More Details
+                    </a>                                                
+                </div>
+              </div>
             </div>
-            <div class="d-grid gap-2">
-               
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="detalleid" onclick="detalle(${id})">
-                See More 
-                </button>
-            </div>
-          </div>
-        </div>
-        `;
-        
-    });
+            `;
+    
+      });
+    }
+
+
+let valor = [];
+function capturar(id){
+
+   let valor= id;
+   let nuevo = valor.toString();
+  
+//localStorage.setItem("detail", JSON.stringify(nuevo))
+
+localStorage.setItem('detail',valor)
+  console.log(localStorage.getItem('detail'))
+
+
 }
 
 async function detalle(id){
@@ -122,7 +127,7 @@ getGames(URL)
   }
 )
 .catch((e)=>{console.warn(e);});
-
+/* 
 const  getGamesByName = async (name) => {
   try {
       let result = await fetch(`https://api.rawg.io/api/games?key=85458154fdcb4c3abf3290a579a65e18&search=${name}`);
@@ -135,67 +140,6 @@ const  getGamesByName = async (name) => {
       console.error(err);
   };
 };
-
-//getGamesByName("counter"); 
-
-/*
-const query = document.getElementById('search');
-query.addEventListener("keypress",async e=>{
-  if(e.target.matches("#search")){
-    //console.log(e.key);
-    if(e.key ==="Enter"){
-      try {
-        let query=e.target.value.toLowerCase();
-     const   api= `https://api.rawg.io/api/games?key=85458154fdcb4c3abf3290a579a65e18&search=${query} `
-       const res = await fetch(api);
-        const json = await res.json();
-
-        console.log("imprimo RES",res);
-        console.log("imprimo JSON",json);
-        if(!res.ok)throw{status:res.status, statusText:res.statusText};
-
-        if(json.results.length ===0){
-          
-          card.innerHTML=`<h2 style='color:#fff'>No existen resultados de juegos para la busqueda: <mark>${query}</mark></h2>`
-        }else{
-          json.results.forEach(el => {
-
-         
-            card.innerHTML+=
-            `
-            <div class="col" >
-              <div class="card h-100 border-primary text-white bg-dark">
-              <img src="${el.background_image}" alt="${el.name}" class="w-100"/>
-                <div class="card-body">
-                  <h5 class="card-title text-center">${el.name}</h5>              
-                  <p class="card-text">id:${el.id}</p>
-                  <p class="card-text">Released: ${el.released}</p>
-                  <p class="card-text">Rating: ${el.rating}</p>
-                </div>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="button">Ver Mas</button>
-                </div>
-              </div>
-            </div>
-            `;
-
-
-
-
-
-            
-          }
-          );
-          
-        }
-      } catch (err) {
-        console.log(err);
-        let mensaje= err.statusText || "ocurrio un Error";
-        card.innerHTML=`<p>Error ${err.status}: ${mensaje}</p>`
-      }
-    }
-  }
-})
 */
 
 
