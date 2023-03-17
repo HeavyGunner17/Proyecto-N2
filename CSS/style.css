@@ -33,14 +33,14 @@ body {
   color: white;
 }
 
-<<<<<<<<< Temporary merge branch 1
+
 .item-adm:hover{
   border-bottom: none !important;
 }
 .pie-pagina .grupo-1 .box p{
     color: #efefef;
     margin-bottom: 10px;
-
+  }
 #logout{
   background-color: #485563 ;
   color: white;
@@ -50,10 +50,9 @@ body {
 .bot-logout{
   overflow: hidden;
 }
-=========
+
 .icon_navbar_collapse{
   color: white;
 }
->>>>>>>>> Temporary merge branch 2
 
-}
+
