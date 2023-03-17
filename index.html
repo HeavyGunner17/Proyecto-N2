@@ -22,12 +22,6 @@
     <link rel="stylesheet" href="/CSS/style.css" />
     <link rel="icon" type="image/png" href="./IMG/monkeyGames_logo.png"/>
     <script src="https://kit.fontawesome.com/f9203096aa.js" crossorigin="anonymous"></script>
-    <script src="
-  https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
-  "></script>
-  <link href="
-  https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css
-  " rel="stylesheet">
 
     <title>Monkey Games</title>
   </head>
@@ -35,40 +29,29 @@
 
     <header>
       <section class="nav_bar">
-        <nav class="navbar navbar-expand-lg bg-transparent fixed-top">
+        <nav class="navbar navbar-expand-lg bg-transparent">
           <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">
-              <img src="./IMG/monkeyGames_logo_horizontal.png" class="img-fluid" alt="logo"/>
+              <img src="./IMG/monkeyGames_logo_horizontal.png" class="img-fluid" alt="logo" />
             </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-            <i class="fa-solid fa-bars icon_navbar_collapse"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
+  
+  
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
-                <li class="nav-item m-2">
-                  <a
-                    class="nav-link active text-white"
-                    aria-current="page"
-                    href="./index.html"
-                    >Home</a
-                  >
+                <li class="nav-item mx-2">
+                  <a class="nav-link active text-white" aria-current="page" href="./index.html">Home</a>
                 </li>
-                <li class="nav-item m-2">
-                  <a class="nav-link" href="#">Contact</a>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="#">Contacto</a>
                 </li>
-                <li class="nav-item m-2">
-                  <a class="nav-link" href="#">About</a>
+                <li class="nav-item mx-2">
+                  <a class="nav-link" href="#">Nosotros</a>
                 </li>
-                <li class="nav-item m-2">
-                  <a class="nav-link text-white" href="#">Login</a>
+                <li class="nav-item mx-2" id="navbar-login">
                 </li>
               </ul>
             </div>
@@ -76,27 +59,9 @@
         </nav>
       </section>
     </header>
-
-    <main class="container-fluid">
-     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mt-2" id="card-template">
-   
-    <!--
-     <div class="col">
-       <div class="card">
-         <img src="..." class="card-img-top" alt="...">
-         <div class="card-body">
-           <h5 class="card-title">Card title</h5>
-           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-         </div>
-       </div>
-     </div>
-
-    -->
-     
-   </div>
-
-    </main>
-
+  
+  
+  
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="container-fluid">
@@ -160,6 +125,25 @@
       </div>
     </div>
 
+    <main class="container-fluid">
+     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mt-2" id="card-template">
+   
+    <!--
+     <div class="col">
+       <div class="card">
+         <img src="..." class="card-img-top" alt="...">
+         <div class="card-body">
+           <h5 class="card-title">Card title</h5>
+           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+         </div>
+       </div>
+     </div>
+
+    -->
+     
+   </div>
+
+    </main>
 
     <footer></footer>
 
@@ -171,7 +155,5 @@
     <script src="https://kit.fontawesome.com/111edc64cf.js" crossorigin="anonymous"></script>
     <script src="/JS/app.js"></script>
     <script src="/JS/detalle.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js">
-    </script>
   </body>
 </html>
