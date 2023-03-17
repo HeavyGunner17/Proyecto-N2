@@ -22,6 +22,12 @@
     <link rel="stylesheet" href="/CSS/style.css" />
     <link rel="icon" type="image/png" href="./IMG/monkeyGames_logo.png"/>
     <script src="https://kit.fontawesome.com/f9203096aa.js" crossorigin="anonymous"></script>
+    <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+  "></script>
+  <link href="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css
+  " rel="stylesheet">
 
     <title>Monkey Games</title>
   </head>
@@ -91,6 +97,70 @@
 
     </main>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="container-fluid">
+          <div class="modal-content">
+            <div style="display: flex; justify-content: end; padding: 0.5em;">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeModal"></button>
+            </div>
+            <div class="modal-body modal-container">
+              <div class="bimo"><img src="./IMG/bimo.webp" alt="bimo" id="bim" />
+              </div>
+              <div class="sign-in">
+                <form onsubmit="validate(event,'login')">
+                  <h6>Sign In here!</h6>
+                  <label class="form-label mt-3" for="username">Username</label>
+                  <input type="text" id="username" class="form-control form-control-lg" required />
+                  <label class="form-label" for="password">Password</label>
+                  <input type="password" id="password" class="form-control form-control-lg" title="8 characters minimum."
+                    minlength="8" required />
+                  <div><a class="passRecover" href="./Paginas/recuperacionPassword.html">Did you forget your password?</a>
+                  </div>
+                  <div>
+                    <button type="submit" class="btn text-white mt-3 button-color">
+                      Login
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="create-account">
+                <form onsubmit="validate(event,'create')">
+                  <h6>Register here!</h6>
+                  <label class="form-label mt-3" for="newUsername">Username</label>
+                  <input type="text" id="newUsername" class="form-control form-control-lg" required />
+                  <label class="form-label" for="userEmail">Email</label>
+                  <input type="email" id="userEmail" class="form-control form-control-lg" required />
+                  <label class="form-label mt-3" for="securityQuestion">Security question</label>
+                  <div>
+                    <select name="question" id="securityQuestion">
+                      <option>What is your favourite color?</option>
+                      <option>What is your cat's name?</option>
+                      <option>What is your dog's name?</option>
+                      <option>What is your mother's name?</option>
+                    </select>
+                  </div>
+                  <label class="form-label mt-3" for="securityAnswer">Answer</label>
+                  <input type="text" id="securityAnswer" class="form-control form-control-lg" required />
+                  <label class="form-label" for="newPassword" class="cols-sm-2 control-label">Password</label>
+                  <input type="password" id="newPassword" class="form-control form-control-lg"
+                    title="8 characters minimum." minlength="8" required />
+                  <label for="confirm" class="cols-sm-2 control-label">Confirm password</label>
+                  <input type="password" class="form-control form-control-lg" name="confirm" id="confirm" required />
+                  <button type="submit" class="btn text-white mt-3 button-color" id="createAccount">
+                    Create account
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <footer></footer>
 
     <script
@@ -101,5 +171,7 @@
     <script src="https://kit.fontawesome.com/111edc64cf.js" crossorigin="anonymous"></script>
     <script src="/JS/app.js"></script>
     <script src="/JS/detalle.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
   </body>
 </html>
