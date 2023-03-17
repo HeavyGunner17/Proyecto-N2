@@ -91,7 +91,7 @@ function displayGames(games) {
       let data = localStorage.getItem('users')
       if (!data) {
           const users = [{
-              id: 0,
+              id: 1,
               username: "admin",
               email: "admin17@gmail.com",
               password: "admin123",
@@ -99,7 +99,7 @@ function displayGames(games) {
               securityQuestion: "What is your favorite color?",
               securityAnswer: "blue"
           }, {
-              id: 1,
+              id: 2,
               username: "rodri8935",
               email: "rodrigo8935@gmail.com",
               password: "rodrigo123",
@@ -107,7 +107,7 @@ function displayGames(games) {
               securityQuestion: `What is your dog's name?`,
               securityAnswer: `Oliver`
           }, {
-              id: 2,
+              id: 3,
               username: "macacorrea715",
               email: "macacorrea715@gmail.com",
               password: "maca715unodos",
@@ -115,7 +115,7 @@ function displayGames(games) {
               securityQuestion: `What is your dog's name?`,
               securityAnswer: `Mora`
           }, {
-              id: 3,
+              id: 4,
               username: "liomessi",
               email: "liomessi@gmail.com",
               password: "quemirabobo",
@@ -124,7 +124,7 @@ function displayGames(games) {
               securityAnswer: `Rosa`
           },
           {
-              id: 4,
+              id: 5,
               username: "robert17",
               email: "robert17@hotmail.com",
               password: "robert96",
@@ -133,7 +133,7 @@ function displayGames(games) {
               securityAnswer: `Maia`
           },
           {
-              id: 5,
+              id: 6,
               username: "pepino25",
               email: "pepipes@gmail.com",
               password: "pepino98",
