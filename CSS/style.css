@@ -95,6 +95,10 @@ body {
   justify-content: center;
 }
 
+.navbar-background{
+  background-color: #212529!important;
+}
+
 
 .user-icon {
   max-width: 8%;
