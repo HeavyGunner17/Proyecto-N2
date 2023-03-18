@@ -180,3 +180,52 @@ query.addEventListener("keypress",async e=>{
     }
   }
 })
+
+
+function generateFooter() {
+  let footer = document.getElementById('footer')
+  footer.innerHTML = `
+  <footer class="pie-pagina container-fluid pt-3">
+  <div class="row grupo-1">
+      <div class="col d-flex justify-content-center align-items-center">
+          <div class="box">
+              <figure>
+                  <a href="#">
+                      <img src="../IMG/monkeyGames_logo_vertical.png" alt="logo MonkeyGames">
+                  </a>
+              </figure>
+          </div>
+      </div>
+      <div class="col d-flex justify-content-center align-items-center text-center">
+          <div class="box">
+              <h2 class='footer-title'>MonkeyGames</h2>
+              <p>We are on a mission to help everyone discover the joy of video games.</p>
+              <p>The future of video games goes beyond entertainment, and it's a privilege to help shape it. shape
+                  it!
+                  We are building a safe, affordable and sustainable marketplace for all gamers today and
+                  tomorrow.
+                  today and tomorrow.</p>
+          </div>
+      </div>
+      <div class="col d-flex justify-content-center align-items-center">
+          <div class="box">
+              <h2 class='footer-title'>Follow us</h2>
+              <div class="red-social text-center">
+                  <a href="/Paginas/error404.html" class="fa fa-facebook socials"></a>
+                  <a href="/Paginas/error404.html" class="fa fa-instagram socials"></a>
+                  <a href="/Paginas/error404.html" class="fa fa-twitter socials"></a>
+                  <a href="/Paginas/error404.html" class="fa fa-youtube socials"></a>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center">
+          <small> &copy;2023 <b>MonkeyGames</b> - All rights reserved -</small>
+      </div>
+  </div>
+`
+}
+
+generateFooter()
