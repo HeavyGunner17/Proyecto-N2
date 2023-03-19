@@ -7,8 +7,8 @@ let card = document.getElementById('card-template');
 async function getGames(url) {
     const res = await fetch(url);
     const data = await res.json();
-    //console.log("Estoy consumiendo API");
-    console.log(data.results);
+    
+    //console.log(data.results);
     displayGames(data.results);
 
 }

@@ -96,7 +96,7 @@ function numeroDiferente(array) {
 function redirect(moveTo) {
     switch (moveTo) {
         case "admin":
-            window.location.href = "./Paginas/administración.html"
+            window.location.href = "../pagina/administración.html"
             break;
         case "user":
             window.location.href = "./index.html"
@@ -193,8 +193,7 @@ async function validate(event, type) {
                 newUserPassConfirm = document.getElementById("confirm").value = ''
                 newMail = document.getElementById("userEmail").value = ''
                 document.getElementById('closeModal').click()
-                console.log(user, 'variable usuario')
-                console.log(JSON.parse(localStorage.getItem('users')))
+                
             } else {
                 Swal.fire({
                     icon: 'error',
