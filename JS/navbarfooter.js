@@ -5,7 +5,7 @@ function generateNavbar() {
     <section class="nav_bar">
       <nav class="navbar navbar-expand-lg bg-transparent fixed-top navbar-background ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html">
+          <a class="navbar-brand" href="../index.html">
             <img src="../IMG/monkeyGames_logo_horizontal.png" class="img-fluid" alt="logo" />
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
