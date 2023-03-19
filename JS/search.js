@@ -9,8 +9,7 @@ query.addEventListener("keypress",async e=>{
        const res = await fetch(api);
         const json = await res.json();
 
-       // console.log("imprimo RES",res);
-        console.log("imprimo JSON",json);
+       
         if(!res.ok)throw{status:res.status, statusText:res.statusText};
 
         if(json.results.length ===0){
