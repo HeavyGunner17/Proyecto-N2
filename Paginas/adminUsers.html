@@ -33,9 +33,13 @@
 
     
     </div>
+
+    <br>
+    <br>
+    
     <main class="mt-5">
         <section class="container">
-          <h3 class="text-center text-white">Administracion de Usuarios</h3>
+          <h3 class="text-center text-white">Users Management</h3>
   
           <table class="table table-responsive table-hover mt-4">
             <thead class="border ">
@@ -59,20 +63,20 @@
         <div class="modal-dialog modal-sm modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="modal-title fs-5" id="exampleModalLabel">Editar usuario</h3>
+              <h3 class="modal-title fs-5" id="exampleModalLabel">Edit Users</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <select class="form-select" name="statusUser" id="select_status" aria-label="Default select example">
-                <option selected>Seleccionar estado</option>
+                <option selected>Select state</option>
                 <option value="1">pendiente</option>
                 <option value="2">aprobado</option>
                 <option value="3">suspendido</option>
               </select>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" id="close_modal" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-success" onclick="statusChange()">Guardar</button>
+              <button type="button" class="btn btn-danger" id="close_modal" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" onclick="statusChange()">Save changes</button>
             </div>
           </div>
         </div>

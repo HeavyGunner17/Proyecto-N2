@@ -38,7 +38,7 @@ function loadUsers(usersLocal) {
 loadUsers(userRegistred);
 
 function openModal_getId(id) {
-  idEdit = userRegistred[id - 1];
+  idEdit = userRegistred[id];
 }
 
 function statusChange() {
@@ -66,8 +66,3 @@ function statusChange() {
   close_modal.click();
 }
 
-logout_li.addEventListener('click', logout())
-
-function logout () {
-  localStorage.removeItem('loggedUser');
-}
