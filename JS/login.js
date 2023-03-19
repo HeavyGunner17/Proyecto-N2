@@ -193,8 +193,7 @@ async function validate(event, type) {
                 newUserPassConfirm = document.getElementById("confirm").value = ''
                 newMail = document.getElementById("userEmail").value = ''
                 document.getElementById('closeModal').click()
-                console.log(user, 'variable usuario')
-                console.log(JSON.parse(localStorage.getItem('users')))
+                
             } else {
                 Swal.fire({
                     icon: 'error',
