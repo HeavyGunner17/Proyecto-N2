@@ -96,7 +96,7 @@ function numeroDiferente(array) {
 function redirect(moveTo) {
     switch (moveTo) {
         case "admin":
-            window.location.href = "../pagina/administración.html"
+            window.location.href = "./Paginas/administración.html"
             break;
         case "user":
             window.location.href = "./index.html"
