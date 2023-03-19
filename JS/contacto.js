@@ -14,6 +14,19 @@ if (nombre.value !="" && nombre.value.length < 20 && nombre.value.length > 10){
     }else {alert("please add a valid email")};
 }else {alert("please add a valid name");
 };
+
+email.send({
+    Host: "smtp.elasticemail.com",
+    Username: "ana_sofia_400@hotmail.com",
+    Password: "BF9814EDF771B794050C9C30EF64741600CE",
+    To: 'ana_sofia_400@hotmail.com',
+    From: "ana_sofia_400@hotmail.com",
+    Subject: "Comment by user",
+    Body: `<html>An user has been commented : ${nombre.value}<br>
+      The comment is: ${contacto.value}<br>
+      </html>`
+})
+
 }
 
 
