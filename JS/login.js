@@ -1,15 +1,30 @@
 function validatePreviousLogin() {
     const getloggeduser = localStorage.getItem('loggedUser')
     const loggeduser = JSON.parse(getloggeduser)
-    if (localStorage.getItem('loggedUser')) {
-        document.getElementById('navbar-login').innerHTML = `
+    if (getloggeduser) {
+
+        if (loggeduser.user === "admin") {
+            document.getElementById('navbar-login').innerHTML = `
           <div class="dropdown">
           <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown">${loggeduser.user}</a>  
           <ul class="dropdown-menu">
-          <li class="dropdown-user"><a class="dropdown-item" href="#">View Profile</a></li>
+          <li class="dropdown-user"><a class="dropdown-item" href="../Paginas/error404.html">View Profile</a></li>
+          <li class="dropdown-user"><a class="dropdown-item" href="../Paginas/adminUsers.html">User Admin.</a></li>
+          <li class="dropdown-user"><a class="dropdown-item" href="../Paginas/administración.html">Games Admin.</a></li>
           <li class="dropdown-user"><a class="dropdown-item" href="#" onclick="confirmLogout()">Logout</a></li>
           </ul>
           </div>`
+
+        } else{
+            document.getElementById('navbar-login').innerHTML = `
+          <div class="dropdown">
+          <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown">${loggeduser.user}</a>  
+          <ul class="dropdown-menu">
+          <li class="dropdown-user"><a class="dropdown-item" href="../Paginas/error404.html">View Profile</a></li>
+          <li class="dropdown-user"><a class="dropdown-item" href="#" onclick="confirmLogout()">Logout</a></li>
+          </ul>
+          </div>`
+        }
     } else {
         document.getElementById('navbar-login').innerHTML = `
           <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>`
