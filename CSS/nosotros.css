@@ -3,8 +3,23 @@
     overflow-x: hidden;
 }
 
+
 .tarjeta-nosotros {
     height: 450px;
+    padding: 0.5px !important;
+    overflow: hidden;
+}
+
+.card-body{
+    background-color: #0a141d;
+    color: #efefef;
+    overflow: hidden;
+}
+
+h5{
+    overflow: hidden;
+    font-family: 'Turret Road', cursive;
+    font-weight: 700 !important;
 }
 
 .foto-tarjeta-n {
@@ -14,15 +29,17 @@
 
 .cont-img{
     overflow-y: hidden;
+    background-color: #0a141d;
 }
 
-@font-face {
-    font-family: 'Turret Road';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/turretroad/v7/pxiAypMgpcBFjE84Zv-fE0tMMPKzSQ.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
+#title-about{
+    font-family: 'Turret Road', cursive;
+    color: #269cb5;
+}
+
+#texto-nosotros{
+    font-family: 'Turret Road', cursive;
+}
 
   body{
     background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
@@ -45,15 +62,7 @@
     color: white;
   }
 
-    /* style del footer */
 
-    @import url('https://fonts.googleapis.com/css2? familia=Montserrat&display=swap');
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
-    }
     /*::::: Pie de Pagina*/
     .pie-pagina{
         width: 100%;
