@@ -1,7 +1,3 @@
-*{
-    box-sizing: border-box;
-    overflow-x: hidden;
-}
 
 h2{
     font-family: 'Turret Road', cursive;
@@ -26,3 +22,9 @@ button{
 .contact-main{
     height: 80vh;
 }
+
+.contact-title {
+    font-family: 'Turret Road', cursive;
+    font-size: 2em;
+    color: #269cb5 !important;
+} 

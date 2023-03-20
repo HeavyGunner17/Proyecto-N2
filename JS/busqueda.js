@@ -3,30 +3,30 @@ let card = document.getElementById('card-template');
 const query = document.getElementById('search');
 
 const btnSearch = document.getElementById('btnSearch');
-btnSearch.addEventListener("click",async function(e){
+btnSearch.addEventListener("click", async function (e) {
   try {
     const isClick = query.value.toLowerCase();
-  
 
-    const   api= `https://api.rawg.io/api/games?key=85458154fdcb4c3abf3290a579a65e18&search=${isClick} `
-         const res = await fetch(api);
-          const json = await res.json();
-  
-         // console.log("imprimo RES",res);
-          console.log("imprimo JSON",json);
-          console.log(isClick);
-          if(!res.ok)throw{status:res.status, statusText:res.statusText};
 
-          if(json.results.length ===0){
-            
-            card.innerHTML=`<h2 style='color:#fff'>No existen resultados de juegos para la busqueda: <mark>${query}</mark></h2>`
-          }else{
-            card.innerHTML="";
-            json.results.forEach(el => {
-  
-              
-              card.innerHTML+=
-              `
+    const api = `https://api.rawg.io/api/games?key=85458154fdcb4c3abf3290a579a65e18&search=${isClick} `
+    const res = await fetch(api);
+    const json = await res.json();
+
+    // console.log("imprimo RES",res);
+    console.log("imprimo JSON", json);
+    console.log(isClick);
+    if (!res.ok) throw { status: res.status, statusText: res.statusText };
+
+    if (json.results.length === 0) {
+
+      card.innerHTML = `<h2 style='color:#fff'>No existen resultados de juegos para la busqueda: <mark>${query}</mark></h2>`
+    } else {
+      card.innerHTML = "";
+      json.results.forEach(el => {
+
+
+        card.innerHTML +=
+          `
               <!-- Modal -->
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -49,35 +49,35 @@ btnSearch.addEventListener("click",async function(e){
                   </div>
                 </div>
               </div>
-              `;            
-            }
-            );
-            
-          }
-  
+              `;
+      }
+      );
+
+    }
+
   } catch (err) {
     console.log(err);
-    let mensaje= err.statusText || "ocurrio un Error";
-    card.innerHTML=`<p>Error ${err.status}: ${mensaje}</p>`
+    let mensaje = err.statusText || "ocurrio un Error";
+    card.innerHTML = `<p>Error ${err.status}: ${mensaje}</p>`
   }
- 
 
-        
+
+
 })
 
-async function detalle(id){
-  let valor= id;
-console.log(valor);
-//console.log("hola desde otro lado"+ valor);
-const api= `https://api.rawg.io/api/games/${id}?key=85458154fdcb4c3abf3290a579a65e18`
-     const res = await fetch(api);
-      const json = await res.json();
-      const modal = document.getElementById('modal-detail')
-     // console.log("imprimo RES",res);
-  console.log("imprimo Detalles",json);
+async function detalle(id) {
+  let valor = id;
+  console.log(valor);
+  //console.log("hola desde otro lado"+ valor);
+  const api = `https://api.rawg.io/api/games/${id}?key=85458154fdcb4c3abf3290a579a65e18`
+  const res = await fetch(api);
+  const json = await res.json();
+  const modal = document.getElementById('modal-detail')
+  // console.log("imprimo RES",res);
+  console.log("imprimo Detalles", json);
   //window.location.href="./detalle.html"
-            modal.innerHTML="";
-        modal. innerHTML+=`
+  modal.innerHTML = "";
+  modal.innerHTML += `
         
         <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">${json.name}</h5>
@@ -102,10 +102,10 @@ const api= `https://api.rawg.io/api/games/${id}?key=85458154fdcb4c3abf3290a579a6
         
         
         `
-    
-  
 
-//console.log(json.website);
+
+
+  //console.log(json.website);
 
 
 
@@ -117,30 +117,30 @@ const api= `https://api.rawg.io/api/games/${id}?key=85458154fdcb4c3abf3290a579a6
 
 
 
-query.addEventListener("keypress",async e=>{
-  if(e.target.matches("#search")){
+query.addEventListener("keypress", async e => {
+  if (e.target.matches("#search")) {
     //console.log(e.key);
-    if(e.key ==="Enter"){
+    if (e.key === "Enter") {
       try {
-        let query=e.target.value.toLowerCase();
-     const   api= `https://api.rawg.io/api/games?key=85458154fdcb4c3abf3290a579a65e18&search=${query} `
-       const res = await fetch(api);
+        let query = e.target.value.toLowerCase();
+        const api = `https://api.rawg.io/api/games?key=85458154fdcb4c3abf3290a579a65e18&search=${query} `
+        const res = await fetch(api);
         const json = await res.json();
 
-       // console.log("imprimo RES",res);
-        console.log("imprimo JSON",json);
-        if(!res.ok)throw{status:res.status, statusText:res.statusText};
+        // console.log("imprimo RES",res);
+        console.log("imprimo JSON", json);
+        if (!res.ok) throw { status: res.status, statusText: res.statusText };
 
-        if(json.results.length ===0){
-          
-          card.innerHTML=`<h2 style='color:#fff'>No existen resultados de juegos para la busqueda: <mark>${query}</mark></h2>`
-        }else{
-          card.innerHTML="";
+        if (json.results.length === 0) {
+
+          card.innerHTML = `<h2 style='color:#fff'>No existen resultados de juegos para la busqueda: <mark>${query}</mark></h2>`
+        } else {
+          card.innerHTML = "";
           json.results.forEach(el => {
 
-            
-            card.innerHTML+=
-            `
+
+            card.innerHTML +=
+              `
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -167,15 +167,15 @@ query.addEventListener("keypress",async e=>{
                 </div>
               </div>
             </div>
-            `;            
+            `;
           }
           );
-          
+
         }
       } catch (err) {
         console.log(err);
-        let mensaje= err.statusText || "ocurrio un Error";
-        card.innerHTML=`<p>Error ${err.status}: ${mensaje}</p>`
+        let mensaje = err.statusText || "ocurrio un Error";
+        card.innerHTML = `<p>Error ${err.status}: ${mensaje}</p>`
       }
     }
   }

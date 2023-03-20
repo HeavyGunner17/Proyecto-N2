@@ -7,9 +7,9 @@ function validatePreviousLogin() {
           <div class="dropdown">
           <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown">${loggeduser.user}</a>  
           <ul class="dropdown-menu">
-          <li class="dropdown-user"><a class="dropdown-item" href="../Paginas/error404.html">View Profile</a></li>
-          <li class="dropdown-user"><a class="dropdown-item" href="../Paginas/adminUsers.html">User Admin.</a></li>
-          <li class="dropdown-user"><a class="dropdown-item" href="../Paginas/administración.html">Games Admin.</a></li>
+          <li class="dropdown-user"><a class="dropdown-item" href="./Paginas/error404.html">View Profile</a></li>
+          <li class="dropdown-user"><a class="dropdown-item" href="./Paginas/adminUsers.html">User Admin.</a></li>
+          <li class="dropdown-user"><a class="dropdown-item" href="./Paginas/administración.html">Games Admin.</a></li>
           <li class="dropdown-user"><a class="dropdown-item" href="#" onclick="confirmLogout()">Logout</a></li>
           </ul>
           </div>`
@@ -18,7 +18,7 @@ function validatePreviousLogin() {
           <div class="dropdown">
           <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown">${loggeduser.user}</a>  
           <ul class="dropdown-menu">
-          <li class="dropdown-user"><a class="dropdown-item" href="../Paginas/error404.html">View Profile</a></li>
+          <li class="dropdown-user"><a class="dropdown-item" href="./Paginas/error404.html">View Profile</a></li>
           <li class="dropdown-user"><a class="dropdown-item" href="#" onclick="confirmLogout()">Logout</a></li>
           </ul>
           </div>`
@@ -109,10 +109,10 @@ function numeroDiferente(array) {
 function redirect(moveTo) {
     switch (moveTo) {
         case "admin":
-            window.location.href = "../Paginas/administración.html"
+            window.location.href = "./Paginas/administración.html"
             break;
         case "user":
-            window.location.href = "../index.html"
+            window.location.href = "./index.html"
             break;
         default:
             break;

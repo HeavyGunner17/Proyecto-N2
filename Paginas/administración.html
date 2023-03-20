@@ -1,220 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="keywords"
-      content="JavaScript, html, juegos, games, online, compra"
-    />
-    <meta
-      name="description"
-      content="En esta increible pagina, podras comprar y conocer juegos nuevos que estan en taquilla y tambien juegos de otras epocas"
-    />
-    <meta name="author" content="David Smith ,Facundo Aguirre, Rodrigo Brizuela, Ana Malocu">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/adminJuegos.css" />
-    <link rel="icon" type="image/png" href="./IMG/monkeyGames_logo.png"/>
 
-    <title>Monkey Games</title>
-  </head>
-  <body>
-    <header>
-      <section class="nav_bar">
-        <nav class="navbar navbar-expand-lg bg-transparent fixed-top navbar-background ">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">
-              <img src="../IMG/monkeyGames_logo_horizontal.png" class="img-fluid" alt="logo" />
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <i class="fa-solid fa-bars icon_navbar_collapse"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item m-2">
-                  <a class="nav-link active text-white" aria-current="page" href="./index.html">Home</a>
-                </li>
-                <li class="nav-item m-2">
-                  <a class="nav-link" href="./Paginas/busqueda.html">Search</a>
-                </li>
-                <li class="nav-item m-2">
-                  <a class="nav-link" href="./Paginas/contacto.html">Contact</a>
-                </li>
-                <li class="nav-item m-2">
-                  <a class="nav-link" href="./Paginas/nosotros.html">About</a>
-                </li>
-                <li class="nav-item m-2" id="navbar-login"></li>
-              </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="JavaScript, html, juegos, games, online, compra" />
+  <meta name="description"
+    content="En esta increible pagina, podras comprar y conocer juegos nuevos que estan en taquilla y tambien juegos de otras epocas" />
+  <meta name="author" content="David Smith ,Facundo Aguirre, Rodrigo Brizuela, Ana Malocu, Nahuel Benitez">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../CSS/style.css" />
+  <link rel="icon" type="image/png" href="../IMG/monkeyGames_logo.png" />
+  <script src="https://kit.fontawesome.com/f9203096aa.js" crossorigin="anonymous"></script>
+  <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js
+  "></script>
+  <link href="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css
+  " rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Turret+Road&display=swap" rel="stylesheet">
+  <title>Monkey Games</title>
+</head>
+
+<body>
+
+
+  <div id="navbar"></div>
+  <!--Modal Nuevo Juego-->
+  <div class="modal fade" id="modal-new-game" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Game's data</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-code" class="col-form-label">Code:</label>
+              <input type="number" class="form-control dato" id="recipient-code" required>
             </div>
-          </div>
-        </nav>
-      </section>
-    </header>
-    <!--Modal Nuevo Juego-->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Game's data</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-code" class="col-form-label">Code:</label>
-            <input type="number" class="form-control dato" id="recipient-code" required>
-          </div>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Nane:</label>
-            <input type="text" class="form-control dato" id="recipient-name" required>
-          </div>
-          <div class="mb-3">
-            <label for="recipient-category" class="col-form-label">Category:</label>
-            <input type="text" class="form-control dato" id="recipient-category" required>
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Description:</label>
-            <textarea class="form-control dato" id="message-text" required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="published" class="col-form-label">Published:</label>
-            <select name="published" id="published" class="dato">
-              <option value="SI">YES</option>
-              <option value="NO">NO</option>
-            </select>
-          </div>
-          
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="cerrarModal">CLOSE</button>
-        <button onclick="agregarJuego()" type="button" class="btn btn-secondary" id="graba-juego-table">SAVE</button>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Name:</label>
+              <input type="text" class="form-control dato" id="recipient-name" required>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-category" class="col-form-label">Category:</label>
+              <input type="text" class="form-control dato" id="recipient-category" required>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Description:</label>
+              <textarea class="form-control dato" id="message-text" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="published" class="col-form-label">Published:</label>
+              <select name="published" id="published" class="dato">
+                <option value="SI">YES</option>
+                <option value="NO">NO</option>
+              </select>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="cerrarModal">CLOSE</button>
+          <button onclick="agregarJuego()" type="button" class="btn btn-secondary" id="graba-juego-table">SAVE</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!--Fin modal-->
-<!--Modal Editar Juego-->
-<div class="modal fade" id="editarJuego" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel2">Game's data</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="inp-codigo" class="col-form-label">Code:</label>
-            <input type="number" class="form-control dato" id="inp-codigo" required>
-          </div>
-          <div class="mb-3">
-            <label for="inp-nombre" class="col-form-label">Name:</label>
-            <input type="text" class="form-control dato" id="inp-nombre" required>
-          </div>
-          <div class="mb-3">
-            <label for="inp-categ" class="col-form-label">Category:</label>
-            <input type="text" class="form-control dato" id="inp-categ" required>
-          </div>
-          <div class="mb-3">
-            <label for="descri" class="col-form-label">Description:</label>
-            <textarea class="form-control dato" id="descri" required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="publicado" class="col-form-label">Published:</label>
-            <select name="publicado" id="publicado" class="dato">
-              <option value="SI">SI</option>
-              <option value="NO">NO</option>
-            </select>
-          </div>
-          
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="cerrarModal">CLOSE</button>
-        <button onclick="editarJuego()" type="button" class="btn btn-secondary" id="graba-juego-table">EDIT</button>
+  <!--Fin modal-->
+  <!--Modal Editar Juego-->
+  <div class="modal fade" id="editarJuego" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel2">Game's data</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="inp-codigo" class="col-form-label">Code:</label>
+              <input type="number" class="form-control dato" id="inp-codigo" required>
+            </div>
+            <div class="mb-3">
+              <label for="inp-nombre" class="col-form-label">Name:</label>
+              <input type="text" class="form-control dato" id="inp-nombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="inp-categ" class="col-form-label">Category:</label>
+              <input type="text" class="form-control dato" id="inp-categ" required>
+            </div>
+            <div class="mb-3">
+              <label for="descri" class="col-form-label">Description:</label>
+              <textarea class="form-control dato" id="descri" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="publicado" class="col-form-label">Published:</label>
+              <select name="publicado" id="publicado" class="dato">
+                <option value="SI">SI</option>
+                <option value="NO">NO</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="cerrarModal">CLOSE</button>
+          <button onclick="editarJuego()" type="button" class="btn btn-secondary" id="graba-juego-table">EDIT</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!--Fin modal-->
-    <main class="my-5">
-      <div class="container">
-        <div class="title&bot d-flex justify-content-center mt-5">
-          <h1 class="title ms-auto text-light text-decoration-underline">Manage Product</h1>
-          <button type="button" class="bot-agr-game btn btn-success ms-auto fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">New Game</button>
-        </div>
-        <div class="table">
-          <table class="table-game table mt-5" id="table-game">
-              <tr class="border border-2">
-                <th scope="col" class="text-light text-center">Code</th>
-                <th scope="col" class="text-light text-center">Name</th>
-                <th scope="col" class="text-light text-center">Category</th>
-                <th scope="col" class="text-light text-center">Description</th>
-                <th scope="col" class="text-light text-center">Published</th>
-                <th scope="col" class="text-light text-center">Option</th>
-              </tr>
-          </table>
-        </div>
+  <!--Fin modal-->
+  <main class="my-5">
+    <div class="container">
+      <div class="title&bot d-flex justify-content-center mt-5">
+        <h1 class="title ms-auto text-light text-decoration-underline">Manage Product</h1>
+        <button type="button" class="bot-agr-game btn btn-success ms-auto fw-bold" data-bs-toggle="modal"
+          data-bs-target="#modal-new-game" data-bs-whatever="@mdo">New Game</button>
       </div>
-    </main>
+      <div class="table">
+        <table class="table-game table mt-5" id="table-game">
+          <tr class="border border-2">
+            <th scope="col" class="text-light text-center">Code</th>
+            <th scope="col" class="text-light text-center">Name</th>
+            <th scope="col" class="text-light text-center">Category</th>
+            <th scope="col" class="text-light text-center">Description</th>
+            <th scope="col" class="text-light text-center">Published</th>
+            <th scope="col" class="text-light text-center">Option</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </main>
 
-    <footer class="pie-pagina container-fluid pt-3">
-      <div class="row grupo-1">
-          <div class="col d-flex justify-content-center align-items-center">
-              <div class="box">
-                  <figure>
-                      <a href="#">
-                          <img src="../IMG/monkeyGames_logo_vertical.png" alt="logo MonkeyGames">
-                      </a>
-                  </figure>
-              </div>
-          </div>
-          <div class="col d-flex justify-content-center align-items-center text-center">
-              <div class="box">
-                  <h2 class='footer-title'>MonkeyGames</h2>
-                  <p>We are on a mission to help everyone discover the joy of video games.</p>
-                  <p>The future of video games goes beyond entertainment, and it's a privilege to help shape it. shape
-                      it!
-                      We are building a safe, affordable and sustainable marketplace for all gamers today and
-                      tomorrow.
-                      today and tomorrow.</p>
-              </div>
-          </div>
-          <div class="col d-flex justify-content-center align-items-center">
-              <div class="box">
-                  <h2 class='footer-title'>Follow us</h2>
-                  <div class="red-social text-center">
-                      <a href="/Paginas/error404.html" class="fa fa-facebook socials"></a>
-                      <a href="/Paginas/error404.html" class="fa fa-instagram socials"></a>
-                      <a href="/Paginas/error404.html" class="fa fa-twitter socials"></a>
-                      <a href="/Paginas/error404.html" class="fa fa-youtube socials"></a>
-                  </div>
-              </div>
-          </div>
-      </div>
-      
-      <div class="d-flex justify-content-center">
-          <div class="d-flex justify-content-center">
-              <small> &copy;2023 <b>MonkeyGames</b> - All rights reserved -</small>
-          </div>
-      </div>
-    </footer>
+  <div id="footer">
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../JS/admin.js"></script>  
-    <script src="https://kit.fontawesome.com/111edc64cf.js" crossorigin="anonymous"></script>
-  </body>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+
+  <script src="../JS/navbarfooter.js"></script>
+  <script src="../JS/login.js"></script>
+  <script src="../JS/admin.js"></script>
+  <script src="https://kit.fontawesome.com/111edc64cf.js" crossorigin="anonymous"></script>
+</body>
+
 </html>

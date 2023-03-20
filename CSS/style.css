@@ -1,13 +1,3 @@
-/* 
-@font-face {
-  font-family: 'Turret Road';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.googleapis.com/css2?family=Turret+Road:wght@300&display=swap);
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-} */
-
-
 body {
   background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
   background-attachment: fixed;
@@ -41,6 +31,11 @@ body {
 }
 .footer-title{
   color: #269cb5;
+}
+
+.game-card-showcase-title{
+  font-family: 'Turret Road', cursive;
+  font-size: 2em;
 }
 
 .item-adm:hover{
@@ -150,10 +145,6 @@ body {
 };
 
 
-/*::::: SECCION NOSOTROS */
-
-
-
 #bim {
   height: 250px;
 }
@@ -219,6 +210,8 @@ body {
 .button-color{
   background-color: #269cb5;
 }
+
+
 @media (max-width: 1200px) {
   .modal-body {
     flex-direction: column;
@@ -230,4 +223,52 @@ body {
     height: 150px;
   }
 
+}
+
+
+.homepage{
+  background-color: #29323c;
+  border-radius: 15px;
+}
+
+.img-container{
+  max-width: 200px;
+}
+
+
+.img-div-width{
+  object-fit: cover;
+  max-width: 100%;
+}
+
+
+.juego-destacado-descripcion{
+  text-align: center;
+}
+
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, 0.418);
+}
+
+.game-card{
+  position: relative;
+}
+
+.game-card:hover .overlay {
+  opacity: 1;
+}
+.card-img-top {
+  min-height: 200px !important;
+  max-height: 200px !important;
 }

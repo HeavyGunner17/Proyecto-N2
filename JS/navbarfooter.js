@@ -3,7 +3,7 @@ function generateNavbar() {
     let navbar = document.getElementById('navbar')
     navbar.innerHTML = `<header>
     <section class="nav_bar">
-      <nav class="navbar navbar-expand-lg bg-transparent fixed-top navbar-background ">
+      <nav class="navbar navbar-expand-lg bg-transparent navbar-background ">
         <div class="container-fluid">
           <a class="navbar-brand" href="../index.html">
             <img src="../IMG/monkeyGames_logo_horizontal.png" class="img-fluid" alt="logo" />

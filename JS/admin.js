@@ -1,7 +1,25 @@
 
 const table = document.getElementById("table-game");
-let listaJuegos = JSON.parse(localStorage.getItem("juegos"));
+
 let onEdit;
+
+let testing = [{
+  codigo: 1,
+  nombre: 'game11111',
+  category: 'Strategy',
+  descripcion: 'strategy game',
+  publicado: 'NO',
+}, {
+  codigo: 2,
+  nombre: 'game2222',
+  category: 'FPS',
+  descripcion: 'shooter game',
+  publicado: 'YES',
+}]
+localStorage.setItem('juegos', JSON.stringify(testing))
+
+
+let listaJuegos = JSON.parse(localStorage.getItem("juegos"));
 
 function validacion() {
   if (document.getElementById("recipient-code").value !== "") {
@@ -63,28 +81,28 @@ function cargarJuegos() {
     botonEditar.id = parseInt(juego.codigo) - 1;
     botonEditar.onclick = () => {
       onEdit = row.id;
-      document.getElementById("inp-codigo").value=cod;
-      document.getElementById("inp-nombre").value=name;
-      document.getElementById("inp-categ").value=cat;
-      document.getElementById("descri").value=descr;
+      document.getElementById("inp-codigo").value = cod;
+      document.getElementById("inp-nombre").value = name;
+      document.getElementById("inp-categ").value = cat;
+      document.getElementById("descri").value = descr;
     }
     let botonDestacar = document.createElement("button");
     botonDestacar.id = parseInt(juego.codigo) - 2;
     botonDestacar.onclick = () => {
-      localStorage.setItem('color',botonDestacar.id);
+      localStorage.setItem('color', botonDestacar.id);
       let botones = document.querySelectorAll('.botones');
-      for(botonera of botones){
-        if(botonera.lastChild.firstChild.style.color=='yellow'){
+      for (botonera of botones) {
+        if (botonera.lastChild.firstChild.style.color == 'yellow') {
           botonera.lastChild.firstChild.style = "color: white";
         } else {
           botonDestacar.firstChild.style = "color:yellow !important"
         }
       }
-      let datosDestacado = [name,cat,descr]
+      let datosDestacado = [name, cat, descr]
       localStorage.setItem('destacado', JSON.stringify(datosDestacado));
       console.log(datosDestacado);
-     
-  }
+
+    }
     botonEliminar.innerHTML =
       '<i class="fa-solid fa-trash text-light fs-4"></i>';
     botonDestacar.innerHTML =
@@ -98,7 +116,7 @@ function cargarJuegos() {
       let tableData = document.createElement("td");
       tableData.textContent = val;
       tableData.style = "color:white; text-align:center";
-      tableData.className ='celda';
+      tableData.className = 'celda';
       row.appendChild(tableData);
     }
     let opciones = document.createElement("td");
@@ -110,6 +128,7 @@ function cargarJuegos() {
 cargarJuegos();
 
 function agregarJuego() {
+  let listaJuegos = JSON.parse(localStorage.getItem("juegos"));
   if (validacion()) {
     let juego = {
       codigo: document.getElementById("recipient-code").value,
@@ -145,20 +164,21 @@ function editarJuego() {
     let categoryNew = document.getElementById("inp-categ").value;
     let descripcionNew = document.getElementById("descri").value;
     let publicadoNew = document.getElementById("publicado").value;
-    
-    let baseJuegos = JSON.parse(localStorage.getItem('juegos')); 
-    baseJuegos.map((j)=>{
-      if(j.codigo===onEdit){
-        j.codigo=codNew;
-        j.nombre=nombreNew;
-        j.category=categoryNew;
-        j.descripcion=descripcionNew;
-        j.publicado=publicadoNew;
+
+    let baseJuegos = JSON.parse(localStorage.getItem('juegos'));
+    baseJuegos.map((j) => {
+      if (j.codigo === onEdit) {
+        j.codigo = codNew;
+        j.nombre = nombreNew;
+        j.category = categoryNew;
+        j.descripcion = descripcionNew;
+        j.publicado = publicadoNew;
       }
     })
-    localStorage.setItem('juegos',JSON.stringify(baseJuegos));
-
+    localStorage.setItem('juegos', JSON.stringify(baseJuegos));
     cargarJuegos();
+
+
 
     let inputsAEditar = document
       .getElementById("editarJuego")
@@ -177,11 +197,10 @@ function editarJuego() {
 
 }
 
-function validColorStar(){
-  let colorStar = localStorage.getItem('color');
-  let star = document.getElementById (colorStar);
-  console.log(star);
-  star.firstChild.style ="color: yellow !important";
-};
+// function validColorStar() {
+//  let colorStar = localStorage.getItem('color');
+//   let star = document.getElementById('colorStar');
+//   star.firstChild.style = "color: yellow !important";
+// };
 
-validColorStar();
+//  validColorStar();
