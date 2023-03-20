@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+h2{
+    font-family: 'Turret Road', cursive;
+}
+
+p{
+    font-family: 'Turret Road', cursive;
+}
+
+label{
+    font-family: 'Turret Road', cursive;
+}
+
+button{
+    font-family: 'Turret Road', cursive;
+}
+
+.cont-input-contact{
+    width: 500px;
+}
+
+.contact-main{
+    height: 80vh;
+}

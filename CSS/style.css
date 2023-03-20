@@ -62,7 +62,97 @@ body {
 
 .icon_navbar_collapse{
   color: white;
+
 }
+
+#bim {
+  height: 250px;
+}
+
+.modal-body {
+  display: flex;
+}
+
+.passRecover {
+  text-decoration: none;
+}
+
+.item-adm:hover {
+  border-bottom: none !important;
+}
+
+#logout {
+  background-color: #485563;
+  color: white;
+  border: none;
+}
+
+.bot-logout {
+  overflow: hidden;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon_navbar_collapse {
+  color: white;
+}
+
+.bimo {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-background{
+  background-color: #212529!important;
+}
+
+
+.user-icon {
+  max-width: 8%;
+}
+
+.dropdown-menu {
+  left: -59% !important;
+}
+
+.socials{
+  text-decoration: none;
+  font-size: 2em;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0) !important;
+  color: #29323c !important;
+}
+.button-color{
+  background-color: #269cb5;
+}
+@media (max-width: 1200px) {
+  .modal-body {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 300px) {
+  #bim {
+    height: 150px;
+  }
+
+}
+
+@media screen and (max-width:630px) { 
+  h1{
+    font-size: 16px;
+    }
+};
+
+
+/*::::: SECCION NOSOTROS */
+
+
 
 #bim {
   height: 250px;
