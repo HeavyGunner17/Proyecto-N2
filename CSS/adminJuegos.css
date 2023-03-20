@@ -9,6 +9,11 @@
     }
   }
 
+  main{
+    height: 80vh;
+    padding: 50px 0;
+  }
+
   .item-adm:hover{
     border-bottom: none !important;
   }
@@ -23,6 +28,7 @@
     overflow: hidden;
   }
 
+ 
   
 @font-face {
   font-family: 'Turret Road';
