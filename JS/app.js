@@ -8,7 +8,6 @@ async function getGames(url) {
   const res = await fetch(url);
   const data = await res.json();
 
-  //console.log(data.results);
   displayGames(data.results);
 
 }
@@ -29,7 +28,7 @@ function displayGames(games) {
                     <a  href="./Paginas/detalles.html" class="btn btn-primary" onclick="capturar(${id})">
                     See More Details
                     </a>
-                    <a class="btn btn-success " href="./error404.html"><i class="fa-sharp fa-solid fa-cart-shopping"> Shop Now!</i></a>
+                    <a class="btn btn-success" href="./Paginas/error404.html"><i class="fa-sharp fa-solid fa-cart-shopping"> Shop Now!</i></a>
                 </div>             
                 </div>
             `;
@@ -44,7 +43,6 @@ function capturar(id) {
 
   //localStorage.setItem("detail", JSON.stringify(nuevo))
   localStorage.setItem('detail', valor)
-  console.log(localStorage.getItem('detail'))
 }
 
 

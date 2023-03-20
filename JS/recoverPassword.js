@@ -1,8 +1,6 @@
 let users = JSON.parse(localStorage.getItem('users'))
-console.log(users)
 
 function getSecurityQuestion(user) {
-    console.log(user.securityQuestion)
     return user.securityQuestion
 }
 function changeUserPassword() {
@@ -24,7 +22,6 @@ function changeUserPassword() {
     users[indexValue] = recoveredUser
     let newUserData = JSON.stringify(users)
     localStorage.setItem('users', newUserData)
-    console.log(JSON.parse(localStorage.getItem('users')))
     Swal.fire({
         icon: 'success',
         title: 'Congratulations',

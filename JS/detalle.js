@@ -1,12 +1,6 @@
 
 const prueba =JSON.parse(localStorage.getItem("detail"))
-/**
- * console.log(localStorage.getItem('detail'))
-console.log("prueba");
-console.log(prueba);
-console.log(typeof prueba); 
- * 
- */
+
 
 
 async function detalle(prueba){
@@ -14,12 +8,9 @@ async function detalle(prueba){
 
 const api= `https://api.rawg.io/api/games/${valor}?key=85458154fdcb4c3abf3290a579a65e18`
 //verfico que valor llega a la api
-  //console.log(api);
      const res = await fetch(api);
       const json = await res.json();
       const modal = document.getElementById('detail-template');
-     // console.log("imprimo RES",res);
-  //console.log("imprimo JSON",json.description);
   
         modal.innerHTML="";
         modal. innerHTML+=`
@@ -54,7 +45,6 @@ const getImages = async ()=>{
 let valor=localStorage.getItem('detail');
 const res = await  fetch(`https://api.rawg.io/api/games/${valor}/screenshots?key=85458154fdcb4c3abf3290a579a65e18`)
 const json = await res.json()
-//console.log(json.results);
 const containercards = document.querySelector('#container-cards')
 containercards.innerHTML=""
 json.results.map((index)=>{
@@ -73,7 +63,7 @@ containercards.append(col);
 const getMovies = async()=>{
   const res = await  fetch(`https://api.rawg.io/api/games/${localStorage.getItem('detail')}/movies?key=85458154fdcb4c3abf3290a579a65e18`)
   const json = await res.json()
-  //console.log(json.results);
+
   const videos = document.querySelector('#videos-container')
   videos.innerHTML=""
   json.results.map((video, index)=>{

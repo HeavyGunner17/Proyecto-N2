@@ -1,3 +1,19 @@
+function validateAdmin() {
+  if (localStorage.getItem('loggedUser')) {
+    const getloggeduser = localStorage.getItem('loggedUser')
+    const loggeduser = JSON.parse(getloggeduser)
+    if ((loggeduser.user) === "admin") {
+    } else {
+      window.location.href = '../index.html'
+    }
+  } else {
+    window.location.href = '../index.html'
+  }
+}
+
+
+validateAdmin()
+
 const table = document.getElementById("table_user");
 let idEdit;
 const logout_li = document.getElementById('logout_admin');

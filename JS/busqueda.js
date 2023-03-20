@@ -11,10 +11,6 @@ btnSearch.addEventListener("click", async function (e) {
     const api = `https://api.rawg.io/api/games?key=85458154fdcb4c3abf3290a579a65e18&search=${isClick} `
     const res = await fetch(api);
     const json = await res.json();
-
-    // console.log("imprimo RES",res);
-    console.log("imprimo JSON", json);
-    console.log(isClick);
     if (!res.ok) throw { status: res.status, statusText: res.statusText };
 
     if (json.results.length === 0) {
@@ -56,7 +52,6 @@ btnSearch.addEventListener("click", async function (e) {
     }
 
   } catch (err) {
-    console.log(err);
     let mensaje = err.statusText || "ocurrio un Error";
     card.innerHTML = `<p>Error ${err.status}: ${mensaje}</p>`
   }
@@ -67,14 +62,10 @@ btnSearch.addEventListener("click", async function (e) {
 
 async function detalle(id) {
   let valor = id;
-  console.log(valor);
-  //console.log("hola desde otro lado"+ valor);
   const api = `https://api.rawg.io/api/games/${id}?key=85458154fdcb4c3abf3290a579a65e18`
   const res = await fetch(api);
   const json = await res.json();
   const modal = document.getElementById('modal-detail')
-  // console.log("imprimo RES",res);
-  console.log("imprimo Detalles", json);
   //window.location.href="./detalle.html"
   modal.innerHTML = "";
   modal.innerHTML += `
@@ -102,16 +93,6 @@ async function detalle(id) {
         
         
         `
-
-
-
-  //console.log(json.website);
-
-
-
-
-
-
 }
 
 
@@ -119,16 +100,12 @@ async function detalle(id) {
 
 query.addEventListener("keypress", async e => {
   if (e.target.matches("#search")) {
-    //console.log(e.key);
     if (e.key === "Enter") {
       try {
         let query = e.target.value.toLowerCase();
         const api = `https://api.rawg.io/api/games?key=85458154fdcb4c3abf3290a579a65e18&search=${query} `
         const res = await fetch(api);
         const json = await res.json();
-
-        // console.log("imprimo RES",res);
-        console.log("imprimo JSON", json);
         if (!res.ok) throw { status: res.status, statusText: res.statusText };
 
         if (json.results.length === 0) {
@@ -173,7 +150,6 @@ query.addEventListener("keypress", async e => {
 
         }
       } catch (err) {
-        console.log(err);
         let mensaje = err.statusText || "ocurrio un Error";
         card.innerHTML = `<p>Error ${err.status}: ${mensaje}</p>`
       }

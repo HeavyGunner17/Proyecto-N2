@@ -1,35 +1,69 @@
+function validateAdmin() {
+  if (localStorage.getItem('loggedUser')) {
+    const getloggeduser = localStorage.getItem('loggedUser')
+    const loggeduser = JSON.parse(getloggeduser)
+    if ((loggeduser.user) === "admin") {
+    } else {
+      window.location.href = '../index.html'
+    }
+  } else {
+    window.location.href = '../index.html'
+  }
+}
+validateAdmin()
+
+function getPreloadedGames() {
+  let previousLoadedGames = localStorage.getItem('juegos')
+  if (!previousLoadedGames) {
+    let preloadedGames = [{
+      codigo: 35195,
+      nombre: 'Civilization VI',
+      category: 'Strategy',
+      descripcion: 'Civilization VI is the new installment of the award-winning franchise Civilization',
+      publicado: 'SI',
+    }, {
+      codigo: 70235,
+      nombre: 'Warcraft III',
+      category: 'Strategy',
+      descripcion: 'Real-time strategy created by Blizzard Entertainment and is its third installment',
+      publicado: 'SI',
+    },
+    {
+      codigo: 195702,
+      nombre: 'Crusader Kings II',
+      category: 'Strategy',
+      descripcion: 'Explore one of the decisive periods of history in a unique experience',
+      publicado: 'SI',
+    }, {
+      codigo: 35702,
+      nombre: 'Europa Universalis IV',
+      category: 'Strategy',
+      descripcion: 'Developed by Paradox Development Studio and published by Paradox Interactive',
+      publicado: 'SI',
+    }]
+    let jsonGameList = JSON.stringify(preloadedGames)
+    localStorage.setItem('juegos', jsonGameList)
+  } else {
+    return
+  }
+
+}
+
+getPreloadedGames()
 
 const table = document.getElementById("table-game");
 
 let onEdit;
 
-let testing = [{
-  codigo: 1,
-  nombre: 'game11111',
-  category: 'Strategy',
-  descripcion: 'strategy game',
-  publicado: 'NO',
-}, {
-  codigo: 2,
-  nombre: 'game2222',
-  category: 'FPS',
-  descripcion: 'shooter game',
-  publicado: 'YES',
-}]
-localStorage.setItem('juegos', JSON.stringify(testing))
-
-
-let listaJuegos = JSON.parse(localStorage.getItem("juegos"));
-
 function validacion() {
-  if (document.getElementById("recipient-code").value !== "") {
-    if (document.getElementById("recipient-name").value !== "") {
-      if (document.getElementById("recipient-category").value !== "") {
-        if (document.getElementById("message-text").value !== "") {
-          return true;
-        }
-      }
-    }
+  if (document.getElementById("recipient-code").value !== "" && document.getElementById("recipient-name").value !== "" &&
+    document.getElementById("recipient-category").value !== "" && document.getElementById("recipient-category").value !== "" &&
+    document.getElementById("message-text").value !== ""
+  ) {
+    return true
+  }
+  else {
+    return false
   }
 }
 
@@ -46,12 +80,14 @@ function validacionNew() {
 }
 
 function cargarJuegos() {
+
+  let listaJuegos = JSON.parse(localStorage.getItem('juegos'))
   let filas = document.querySelectorAll(".fil");
   for (fila of filas) {
     fila.innerHTML = "";
   }
-  let juegosGuardados = JSON.parse(localStorage.getItem("juegos"));
-  for (juego of juegosGuardados) {
+
+  for (juego of listaJuegos) {
     let cod = juego.codigo;
     let name = juego.nombre;
     let cat = juego.category;
@@ -100,9 +136,9 @@ function cargarJuegos() {
       }
       let datosDestacado = [name, cat, descr]
       localStorage.setItem('destacado', JSON.stringify(datosDestacado));
-      console.log(datosDestacado);
-
     }
+
+    
     botonEliminar.innerHTML =
       '<i class="fa-solid fa-trash text-light fs-4"></i>';
     botonDestacar.innerHTML =
@@ -138,8 +174,7 @@ function agregarJuego() {
       publicado: document.getElementById("published").value,
     };
     listaJuegos.push(juego);
-    localStorage.setItem("juegos", JSON.stringify(listaJuegos));
-
+    localStorage.setItem('juegos', JSON.stringify(listaJuegos));
     cargarJuegos();
 
     let conjuntoInput = document
@@ -150,8 +185,7 @@ function agregarJuego() {
     }
     let descrip = document.getElementById("message-text");
     descrip.value = "";
-
-    location.reload(true);
+    // location.reload(true);
   } else {
     alert("Los campos son obligatorios");
   }
