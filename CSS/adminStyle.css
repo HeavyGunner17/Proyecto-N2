@@ -28,7 +28,7 @@ button > .icon_admin:hover{
 
 .user-title{
     font-family: 'Turret Road', cursive;
-    color: #269cb5;
+    color: #269cb5 !important;
     
 }
 @media screen and (max-width:991px ) {
@@ -40,4 +40,7 @@ button > .icon_admin:hover{
       padding: 0 !important;
       min-height: 209px;
     }
+  }
+  .modal-body{
+    display: inline-block !important;
   }

@@ -231,10 +231,10 @@ function editarJuego() {
 
 }
 
-// function validColorStar() {
-//  let colorStar = localStorage.getItem('color');
-//   let star = document.getElementById('colorStar');
-//   star.firstChild.style = "color: yellow !important";
-// };
+function validColorStar() {
+ let colorStar = localStorage.getItem('color');
+  let star = document.getElementById('colorStar');
+  star.firstChild.style = "color: yellow !important";
+ };
 
-//  validColorStar();
+  validColorStar();

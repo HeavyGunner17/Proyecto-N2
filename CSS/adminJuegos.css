@@ -28,6 +28,11 @@
     overflow: hidden;
   }
 
+  .title {
+    font-family: 'Turret Road', cursive;
+    color: #269cb5 !important;
+  }
+
 
 body {
   background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
@@ -35,77 +40,6 @@ body {
   background-size: contain;
 }
 
-/*Estilos Navbar*/
-
-.nav-link{
-  color: white;
+.modal-body{
+  display: inline-block !important;
 }
-
-.navbar-nav > li {
-  font-size: 1.2rem;
-  height: 1.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar-nav > li :hover {
-  border-bottom: 3px solid #2bc9c8;
-  color: white;
-}
-
-
-.item-adm:hover{
-  border-bottom: none !important;
-}
-.pie-pagina .grupo-1 .box p{
-    color: #efefef;
-    margin-bottom: 10px;
-  }
-
-  .icon_navbar_collapse{
-    color: white;
-  }
-  
-  #bim {
-    height: 250px;
-  }
-
-  .passRecover {
-    text-decoration: none;
-  }
-
-  .user-icon {
-    max-width: 8%;
-  }
-  
-  .dropdown-menu {
-    left: -59% !important;
-  }
-  
-  .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0) !important;
-    color: #29323c !important;
-  }
-  .button-color{
-    background-color: #269cb5;
-  }
-  
-  .pie-pagina{
-    font-family: 'Turret Road', cursive;
-    margin-top: 2em;
-    background-color: #212529!important;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-  }
-  .footer-title{
-    color: #269cb5;
-  }
-  
-  .item-adm:hover{
-    border-bottom: none !important;
-  }
-  .pie-pagina .grupo-1 .box p{
-      color: #efefef;
-      margin-bottom: 10px;
-    }

@@ -27,29 +27,50 @@ btnSearch.addEventListener("click", async function (e) {
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content" id="modal-detail">
-                   
                   </div>
                 </div>
               </div>
-              <div class="col" >
-                <div class="card h-100 border-primary text-white bg-dark">
-                <img src="${el.background_image}" alt="${el.name}" class="h-50"/>
-                  <div class="card-body">
-                    <h5 class="card-title text-center">${el.name}</h5>              
-                    
-                  </div>
-                  <div class="d-grid gap-2">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="detalleid" onclick="detalle(${el.id})">
-                  See More 
-                  </button>
-                  </div>
+
+
+
+              <div class="col-3  text-light game-card p-1">
+              <div class="card text-white d-block">
+                <img src="${el.background_image}" class="card-img-top h-50" alt="${el.name}">
+              </div>
+              <div class="card-body overlay">
+                <h5 class="card-title text-center game-card-showcase-title">${el.name}</h5
+                <div class="d-flex justify-content-center gap-2">
+                <a href="../Paginas/error404.html"><button class="btn btn-primary" type="button">See More</button></a>
                 </div>
               </div>
-              `;
+            </div>
+                `;
       }
       );
-
     }
+
+
+
+              
+    //           <div class="col" >
+    //             <div class="card h-100 border-primary text-white bg-dark">
+    //             <img src="${el.background_image}" alt="${el.name}" class="h-50"/>
+    //               <div class="card-body">
+    //                 <h5 class="card-title text-center">${el.name}</h5>              
+                    
+    //               </div>
+    //               <div class="d-grid gap-2">
+    //               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="detalleid" onclick="detalle(${el.id})">
+    //               See More 
+    //               </button>
+    //               </div>
+    //             </div>
+    //           </div>
+    //           `;
+    //   }
+    //   );
+
+    // }
 
   } catch (err) {
     let mensaje = err.statusText || "ocurrio un Error";
@@ -128,30 +149,51 @@ query.addEventListener("keypress", async e => {
             </div>
 
 
-            <div class="col" >
-              <div class="card h-100 border-primary text-white bg-dark">
-              <img src="${el.background_image}" alt="${el.name}" class="h-50"/>
-                <div class="card-body">
-                  <h5 class="card-title text-center">${el.name}</h5>              
-                  <p class="card-text">id:${el.id}</p>
-                  <p class="card-text">Released: ${el.released}</p>
-                  <p class="card-text">Rating: ${el.rating}</p>
-                </div>
-                <div class="d-grid gap-2">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="detalleid" onclick="detalle(${el.id})">
-                See More 
-                </button>
-                </div>
+            <div class="col-3  text-light game-card p-1">
+            <div class="card text-white d-block">
+              <img src="./IMG/${el.background_image}.jpg" class="card-img-top h-50" alt=""${el.name}"">
+            </div>
+            <div class="card-body overlay">
+              <h5 class="card-title text-center game-card-showcase-title">${el.name}</h5>
+              <p class="card-text d-none codi">id${el.id}</p>
+              <p class="card-text d-none desc">Released: ${el.released}</p>
+              <p class="d-none publ">Rating: ${el.rating}</p>
+              <div class="d-flex justify-content-center gap-2">
+              <a href="../Paginas/error404.html"><button class="btn btn-primary" type="button">See More</button></a>
               </div>
             </div>
-            `;
+          </div>
+              `;
           }
           );
+
+
+
+
+
+
+                // <div class="col" >
+                //   <div class="card h-100 border-primary text-white bg-dark">
+                //   <img src="${el.background_image}" alt="${el.name}" class="h-50"/>
+                //     <div class="card-body">
+                //       <h5 class="card-title text-center">${el.name}</h5>              
+                //       <p class="card-text">id:${el.id}</p>
+                //       <p class="card-text">Released: ${el.released}</p>
+                //       <p class="card-text">Rating: ${el.rating}</p>
+                //     </div>
+                //     <div class="d-grid gap-2">
+                //     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="detalleid" onclick="detalle(${el.id})">
+                //     See More 
+                //     </button>
+                //     </div>
+                //   </div>
+                // </div>
+      
 
         }
       } catch (err) {
         let mensaje = err.statusText || "ocurrio un Error";
-        card.innerHTML = `<p>Error ${err.status}: ${mensaje}</p>`
+        card.innerHTML = `< p > Error ${ err.status }: ${ mensaje }</p > `
       }
     }
   }
@@ -161,7 +203,7 @@ query.addEventListener("keypress", async e => {
 function generateFooter() {
   let footer = document.getElementById('footer')
   footer.innerHTML = `
-  <footer class="pie-pagina container-fluid pt-3">
+              < footer class="pie-pagina container-fluid pt-3" >
   <div class="row grupo-1">
       <div class="col d-flex justify-content-center align-items-center">
           <div class="box">
@@ -201,7 +243,7 @@ function generateFooter() {
           <small> &copy;2023 <b>MonkeyGames</b> - All rights reserved -</small>
       </div>
   </div>
-`
+            `
 }
 
 generateFooter()
