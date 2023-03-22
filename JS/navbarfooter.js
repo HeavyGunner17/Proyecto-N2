@@ -109,7 +109,7 @@ generateNavbar()
 function generateFooter() {
     let footer = document.getElementById('footer')
     footer.innerHTML = `
-    <footer class="pie-pagina container-fluid pt-3" style="margin-top:230px">
+    <footer class="pie-pagina container-fluid pt-3" style="margin-top:30px">
     <div class="row grupo-1">
         <div class="col d-flex justify-content-center align-items-center">
             <div class="box">

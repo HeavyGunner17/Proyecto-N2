@@ -14,11 +14,13 @@
     background-color: #0a141d;
     color: #efefef;
     overflow: hidden;
+
 }
 
 
 .foto-tarjeta-n {
-    width: 150px;
+    width: 250px;
+    height: 250px;   
 }
 
 .cont-img {

@@ -25,3 +25,19 @@ button > .icon_admin:hover{
 .icon_userEdit:hover{
     color: #2bc9c8;
 }
+
+.user-title{
+    font-family: 'Turret Road', cursive;
+    color: #269cb5;
+    
+}
+@media screen and (max-width:991px ) {
+    .celda{
+      max-height: 209px !important ;
+      padding: 0 !important;
+    }
+    .botones{
+      padding: 0 !important;
+      min-height: 209px;
+    }
+  }
