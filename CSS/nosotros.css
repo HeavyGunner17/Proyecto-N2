@@ -5,7 +5,7 @@
 
 
 .tarjeta-nosotros {
-    height: 450px;
+    height: 400px;
     padding: 0.5px !important;
     overflow: hidden;
 }
@@ -23,8 +23,7 @@
     height: 250px;   
 }
 
-.cont-img {
-    overflow-y: hidden;
+.cont-img { 
     background-color: #0a141d;
 }
 
@@ -43,14 +42,14 @@ body {
     background-size: contain;
 }
 
-/*Estilos Navbar*/
-.nav-link {
-    color: white;
+
+.rounded-circle{
+    border-radius: 95px !important;
+    background-color: #142d33;
+    padding: 5px;
 }
 
-
-/* .about-title {
-    font-family: 'Turret Road', cursive;
-    font-size: 2em;
-    color: #269cb5;
-} */
+.card{
+    background-color: #439cad !important;
+    padding: 3px !important;
+}

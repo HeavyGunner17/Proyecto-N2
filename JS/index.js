@@ -78,7 +78,7 @@ function loadPreloadedGames() {
 
     listaJuegos.forEach(element => {
         secondaryGames.innerHTML += `
-      <div class="col-3  text-light game-card p-1">
+      <div class="col-lg-3 col-md-6   text-light game-card p-1">
       <div class="card text-white d-block">
         <img src="./IMG/${element.nombre}.jpg" class="card-img-top h-50" alt="...">
       </div>
@@ -216,7 +216,20 @@ async function validate(event, type) {
                     title: 'Congratulations', text: 'You have successfully logged in', timer: 3000, showConfirmButton: false
                 })
                 redirect('user')
-            } else {
+            }
+            else if((enteredUser.username == isValidMail && enteredUser.password == isValidPass && enteredUser.estado == 'pendiente')){
+                await Swal.fire({
+                    icon: 'info',
+                    title: 'Oops...', text: 'This user is not yet authorized by the admin', timer: 3000, showConfirmButton: false
+                })
+            }
+            else if((enteredUser.username == isValidMail && enteredUser.password == isValidPass && enteredUser.estado == 'suspendido')){
+                await Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...', text: 'This user has been suspended', timer: 3000, showConfirmButton: false
+                })
+            }
+            else {
                 await Swal.fire({
                     icon: 'error',
                     title: 'Oops...', html: 'The <b>username</b> or the <b>password</b> introduced is <b>wrong</b>', timer: 3000, showConfirmButton: false

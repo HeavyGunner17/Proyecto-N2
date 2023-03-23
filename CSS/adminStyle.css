@@ -1,48 +1,65 @@
-.icon_admin{
+.icon_admin {
     font-size: 1.5rem;
     color: white;
 }
 
-button > .icon_admin:hover{
+button>.icon_admin:hover {
     color: #2bc9c8;
 }
 
-.table_title{
+.table_title {
     color: white;
     text-align: center;
     font-size: 1.1rem;
     font-family: 'Turret Road', cursive;
 }
 
-.table_text{
+.table_text {
     color: rgba(255, 255, 255, 0.61);
     text-align: center;
     font-family: 'Turret Road', cursive;
 }
 
-.icon_userEdit{
+.icon_userEdit {
     color: white;
 }
 
-.icon_userEdit:hover{
+.icon_userEdit:hover {
     color: #2bc9c8;
 }
 
-.user-title{
+.user-title {
     font-family: 'Turret Road', cursive;
     color: #269cb5 !important;
-    
+
 }
-@media screen and (max-width:991px ) {
-    .celda{
-      max-height: 209px !important ;
-      padding: 0 !important;
+
+@media screen and (max-width:991px) {
+    .celda {
+        max-height: 209px !important;
+        padding: 0 !important;
     }
-    .botones{
-      padding: 0 !important;
-      min-height: 209px;
+
+    .botones {
+        padding: 0 !important;
+        min-height: 209px;
     }
-  }
-  .modal-body{
+}
+
+.modal-body {
     display: inline-block !important;
-  }
+}
+
+
+@media screen and (max-width:560px) {
+    .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    main {
+        height: 100%;
+    }
+
+}

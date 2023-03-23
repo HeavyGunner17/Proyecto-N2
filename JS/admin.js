@@ -107,7 +107,11 @@ function cargarJuegos() {
       ) {
         row.innerHTML = "";
       }
-      listaJuegos = listaJuegos.filter((obj) => obj.codigo !== row.id);
+
+      let gameToDelete = listaJuegos.findIndex((game) => game.codigo  !== row.id )
+      // listaJuegos = listaJuegos.filter((obj) => obj.codigo !== row.id);
+      listaJuegos.splice(gameToDelete, 1)
+
       localStorage.setItem("juegos", JSON.stringify(listaJuegos));
     };
     let botonEditar = document.createElement("div");
@@ -231,10 +235,10 @@ function editarJuego() {
 
 }
 
-function validColorStar() {
- let colorStar = localStorage.getItem('color');
-  let star = document.getElementById('colorStar');
-  star.firstChild.style = "color: yellow !important";
- };
+// function validColorStar() {
+//  let colorStar = localStorage.getItem('color');
+//   let star = document.getElementById('colorStar');
+//   star.firstChild.style = "color: yellow !important";
+//  };
 
-  validColorStar();
+//   validColorStar();

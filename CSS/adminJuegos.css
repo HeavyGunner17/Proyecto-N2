@@ -1,37 +1,39 @@
-@media screen and (max-width:991px ) {
-    .celda{
-      max-height: 209px !important ;
-      padding: 0 !important;
-    }
-    .botones{
-      padding: 0 !important;
-      min-height: 209px;
-    }
+@media screen and (max-width:991px) {
+  .celda {
+    max-height: 209px !important;
+    padding: 0 !important;
   }
 
-  main{
-    height: 80vh;
-    padding: 50px 0;
+  .botones {
+    padding: 0 !important;
+    min-height: 209px;
   }
+}
 
-  .item-adm:hover{
-    border-bottom: none !important;
-  }
-  
-  #logout{
-    background-color: #485563 ;
-    color: white;
-    border: none;
-  }
-  
-  .bot-logout{
-    overflow: hidden;
-  }
+main {
+  height: 80vh;
+  padding: 50px 0;
+}
 
-  .title {
-    font-family: 'Turret Road', cursive;
-    color: #269cb5 !important;
-  }
+.item-adm:hover {
+  border-bottom: none !important;
+}
+
+#logout {
+  background-color: #485563;
+  color: white;
+  border: none;
+}
+
+.bot-logout {
+  overflow: hidden;
+}
+
+.title {
+  font-family: 'Turret Road', cursive;
+  color: #269cb5 !important;
+  font-size: 30px;
+}
 
 
 body {
@@ -40,6 +42,20 @@ body {
   background-size: contain;
 }
 
-.modal-body{
+.modal-body {
   display: inline-block !important;
+}
+
+
+@media screen and (max-width:560px) {
+  .table-game {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  main {
+    height: 100%;
+  }
+
 }
