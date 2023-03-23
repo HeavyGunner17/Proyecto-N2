@@ -11,11 +11,13 @@ button > .icon_admin:hover{
     color: white;
     text-align: center;
     font-size: 1.1rem;
+    font-family: 'Turret Road', cursive;
 }
 
 .table_text{
     color: rgba(255, 255, 255, 0.61);
     text-align: center;
+    font-family: 'Turret Road', cursive;
 }
 
 .icon_userEdit{
