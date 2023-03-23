@@ -13,4 +13,32 @@ input {
    .input:active {
     box-shadow: 2px 2px 15px #8707ff inset;
    }
+   input[type="search"]::-webkit-search-cancel-button {
+
+    /* Remove default */
+    -webkit-appearance: none;
+      
+    /* Now your own custom styles */
+    height: 40px;
+    width: 40px;
+    background: rgb(18, 147, 227);
+    /* Will place small red box on the right of input (positioning carries over) */
+  
+  }
+   
+   
+  #btnSearch{
+    background-color: #269cb5;
+    color: #fff;
+    transition: 0.2s;
+    height: 3rem;
+    margin-bottom: 13px;
+    
+   }
+   #btn:hover{
+    background-color: #11849b;
+   }
+   
+
+
    

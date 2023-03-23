@@ -21,24 +21,23 @@ btnSearch.addEventListener("click", async function (e) {
       json.results.forEach(el => {
         card.innerHTML +=
           `
-              <!-- Modal -->
-              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content" id="modal-detail">
-                  </div>
-                </div>
-              </div>
-              <div class="col-3  text-light game-card p-1">
-              <div class="card text-white d-block">
-                <img src="${el.background_image}" class="card-img-top h-50" alt="${el.name}">
-              </div>
-              <div class="card-body overlay">
-                <h5 class="card-title text-center game-card-showcase-title">${el.name}</h5
-                <div class="d-flex justify-content-center gap-2">
-                <a href="../Paginas/error404.html"><button class="btn btn-primary" type="button">See More</button></a>
-                </div>
-              </div>
+          <div class="col text-light game-card p-1">
+          <div class="card text-white bg-dark">
+          <img src="${el.background_image}" alt="${el.name}" class="h-50 card-img-top" />
+          </div>
+            <div class="card-body overlay">
+              <h5 class="card-title text-center game-card-showcase-title">${el.name}</h5>     
+              <div class="d-grid gap-2 mb-2">
+                <a  href="../Paginas/detalles.html" class="btn btn-primary" onclick="capturar(${el.id})">
+                See More Details
+                </a>
+                <a class="btn btn-success" href="./Paginas/error404.html"><i class="fa-sharp fa-solid fa-cart-shopping"> Shop Now!</i></a>
+                
+                
+            </div>             
             </div>
+
+
                 `;
       }
       );
@@ -46,26 +45,6 @@ btnSearch.addEventListener("click", async function (e) {
 
 
 
-              
-    //           <div class="col" >
-    //             <div class="card h-100 border-primary text-white bg-dark">
-    //             <img src="${el.background_image}" alt="${el.name}" class="h-50"/>
-    //               <div class="card-body">
-    //                 <h5 class="card-title text-center">${el.name}</h5>              
-                    
-    //               </div>
-    //               <div class="d-grid gap-2">
-    //               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="detalleid" onclick="detalle(${el.id})">
-    //               See More 
-    //               </button>
-    //               </div>
-    //             </div>
-    //           </div>
-    //           `;
-    //   }
-    //   );
-
-    // }
 
   } catch (err) {
     let mensaje = err.statusText || "ocurrio un Error";
@@ -76,40 +55,6 @@ btnSearch.addEventListener("click", async function (e) {
 
 })
 
-async function detalle(id) {
-  let valor = id;
-  const api = `https://api.rawg.io/api/games/${id}?key=85458154fdcb4c3abf3290a579a65e18`
-  const res = await fetch(api);
-  const json = await res.json();
-  const modal = document.getElementById('modal-detail')
-  //window.location.href="./detalle.html"
-  modal.innerHTML = "";
-  modal.innerHTML += `
-        
-        <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">${json.name}</h5>
-
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <img src="${json.background_image}" alt="${json.name}"  class="w-50"/>
-      <p class="card-text">Released: ${json.released}</p>
-      <p class="card-text">Rating: ${json.rating}</p>
-      <p class="card-text">Description: ${json.description}</p>
-      
-      <p>Website: <a href="${json.website}">${json.website}</a></p>
-      
-      
-      </div>
-     
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        
-      </div>
-        
-        
-        `
-}
 
 
 
@@ -134,56 +79,29 @@ query.addEventListener("keypress", async e => {
 
             card.innerHTML +=
               `
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content" id="modal-detail">
-                 
+              <div class="col text-light game-card p-1">
+              <div class="card text-white bg-dark">
+              <img src="${el.background_image}" alt="${el.name}" class="h-50 card-img-top" />
+              </div>
+                <div class="card-body overlay">
+                  <h5 class="card-title text-center game-card-showcase-title">${el.name}</h5>     
+                  <div class="d-grid gap-2 mb-2">
+                    <a  href="../Paginas/detalles.html" class="btn btn-primary" onclick="capturar(${el.id})">
+                    See More Details
+                    </a>
+                    <a class="btn btn-success" href="./Paginas/error404.html"><i class="fa-sharp fa-solid fa-cart-shopping"> Shop Now!</i></a>
+                    
+                    
+                </div>             
                 </div>
-              </div>
-            </div>
-
-
-            <div class="col-3  text-light game-card p-1">
-            <div class="card text-white d-block">
-              <img src="${el.background_image}" class="card-img-top h-50" alt=""${el.name}"">
-            </div>
-            <div class="card-body overlay">
-              <h5 class="card-title text-center game-card-showcase-title">${el.name}</h5>
-              <p class="card-text d-none codi">id${el.id}</p>
-              <p class="card-text d-none desc">Released: ${el.released}</p>
-              <p class="d-none publ">Rating: ${el.rating}</p>
-              <div class="d-flex justify-content-center gap-2">
-              <a href="../Paginas/error404.html"><button class="btn btn-primary" type="button">See More</button></a>
-              </div>
-            </div>
-          </div>
+    
+    
               `;
           }
           );
 
 
 
-
-
-
-                // <div class="col" >
-                //   <div class="card h-100 border-primary text-white bg-dark">
-                //   <img src="${el.background_image}" alt="${el.name}" class="h-50"/>
-                //     <div class="card-body">
-                //       <h5 class="card-title text-center">${el.name}</h5>              
-                //       <p class="card-text">id:${el.id}</p>
-                //       <p class="card-text">Released: ${el.released}</p>
-                //       <p class="card-text">Rating: ${el.rating}</p>
-                //     </div>
-                //     <div class="d-grid gap-2">
-                //     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="detalleid" onclick="detalle(${el.id})">
-                //     See More 
-                //     </button>
-                //     </div>
-                //   </div>
-                // </div>
-      
 
         }
       } catch (err) {
@@ -240,5 +158,15 @@ function generateFooter() {
   </div>
             `
 }
+
+function capturar(id) {
+
+  let valor = id;
+  let nuevo = valor.toString();
+
+  //localStorage.setItem("detail", JSON.stringify(nuevo))
+  localStorage.setItem('detail', valor)
+}
+
 
 generateFooter()
