@@ -180,7 +180,7 @@ async function validate(event, type) {
                     password: newUserPass,
                     securityQuestion: newSecurityQuestion,
                     securityAnswer: newSecurityAnswer,
-                    status: "pendiente",
+                    estado: "pendiente",
                     id: getNewId()
                 }
                 let userListJSON = localStorage.getItem('users')
@@ -242,13 +242,10 @@ async function validate(event, type) {
         })
     }
 }
-
 function logout() {
     localStorage.removeItem('loggedUser')
     location.reload()
 }
-
-
 function confirmLogout() {
     Swal.fire({
         title: 'Are you sure you want to log out??',

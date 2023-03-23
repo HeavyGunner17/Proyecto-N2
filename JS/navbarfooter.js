@@ -135,10 +135,10 @@ function generateFooter() {
             <div class="box">
                 <h2 class='footer-title'>Follow us</h2>
                 <div class="red-social text-center">
-                    <a href="/Paginas/error404.html" class="fa fa-facebook socials"></a>
-                    <a href="/Paginas/error404.html" class="fa fa-instagram socials"></a>
-                    <a href="/Paginas/error404.html" class="fa fa-twitter socials"></a>
-                    <a href="/Paginas/error404.html" class="fa fa-youtube socials"></a>
+                    <a href="../Paginas/error404.html" class="fa fa-facebook socials"></a>
+                    <a href="../Paginas/error404.html" class="fa fa-instagram socials"></a>
+                    <a href="../Paginas/error404.html" class="fa fa-twitter socials"></a>
+                    <a href="../Paginas/error404.html" class="fa fa-youtube socials"></a>
                 </div>
             </div>
         </div>

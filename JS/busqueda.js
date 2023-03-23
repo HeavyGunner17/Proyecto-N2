@@ -19,8 +19,6 @@ btnSearch.addEventListener("click", async function (e) {
     } else {
       card.innerHTML = "";
       json.results.forEach(el => {
-
-
         card.innerHTML +=
           `
               <!-- Modal -->
@@ -30,9 +28,6 @@ btnSearch.addEventListener("click", async function (e) {
                   </div>
                 </div>
               </div>
-
-
-
               <div class="col-3  text-light game-card p-1">
               <div class="card text-white d-block">
                 <img src="${el.background_image}" class="card-img-top h-50" alt="${el.name}">

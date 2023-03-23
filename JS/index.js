@@ -29,10 +29,6 @@ function validatePreviousLogin() {
     }
 }
 validatePreviousLogin()
-
-
-
-
 function getPreloadedGames() {
     let previousLoadedGames = localStorage.getItem('juegos')
     if (!previousLoadedGames) {
@@ -69,9 +65,7 @@ function getPreloadedGames() {
     }
 
 }
-
 getPreloadedGames()
-
 function loadPreloadedGames() {
     let listaJuegos = JSON.parse(localStorage.getItem('juegos'))
     let secondaryGames = document.getElementById('secondary-games')
@@ -98,7 +92,6 @@ function loadPreloadedGames() {
 
 }
 loadPreloadedGames()
-
 function loadUsers() {
     let data = localStorage.getItem('users')
     if (!data) {
@@ -217,13 +210,13 @@ async function validate(event, type) {
                 })
                 redirect('user')
             }
-            else if((enteredUser.username == isValidMail && enteredUser.password == isValidPass && enteredUser.estado == 'pendiente')){
+            else if ((enteredUser.username == isValidMail && enteredUser.password == isValidPass && enteredUser.estado == 'pendiente')) {
                 await Swal.fire({
                     icon: 'info',
                     title: 'Oops...', text: 'This user is not yet authorized by the admin', timer: 3000, showConfirmButton: false
                 })
             }
-            else if((enteredUser.username == isValidMail && enteredUser.password == isValidPass && enteredUser.estado == 'suspendido')){
+            else if ((enteredUser.username == isValidMail && enteredUser.password == isValidPass && enteredUser.estado == 'suspendido')) {
                 await Swal.fire({
                     icon: 'error',
                     title: 'Oops...', text: 'This user has been suspended', timer: 3000, showConfirmButton: false
@@ -263,7 +256,7 @@ async function validate(event, type) {
                     password: newUserPass,
                     securityQuestion: newSecurityQuestion,
                     securityAnswer: newSecurityAnswer,
-                    status: "pendiente",
+                    estado: "pendiente",
                     id: getNewId()
                 }
                 let userListJSON = localStorage.getItem('users')
@@ -325,13 +318,10 @@ async function validate(event, type) {
         })
     }
 }
-
 function logout() {
     localStorage.removeItem('loggedUser')
     location.reload()
 }
-
-
 function confirmLogout() {
     Swal.fire({
         title: 'Are you sure you want to log out??',
@@ -350,3 +340,48 @@ function confirmLogout() {
         }
     })
 }
+
+function loadDestacado() {
+    let juegoDestacado = JSON.parse(localStorage.getItem('destacado'))
+    let juegoDestacadoDiv = document.getElementById('juego-destacado')
+    if (juegoDestacado) {
+        juegoDestacadoDiv.innerHTML = `
+        <div class="text-white img-container img-div-width">
+        <img src="./IMG/${juegoDestacado.name}.jpg" class="img-div-width" id="portada" alt="Juego Destacado">
+      </div>
+      <div id="jDestacado" class="juego-destacado-descripcion">
+        <h5  class="text-light fw-bold fs-2">${juegoDestacado.name}</h5>
+        <p class="d-none">${juegoDestacado.code}</p>
+        <p id="jdCatego" class="text-light fw-bold mt-3 fs-3">${juegoDestacado.category}</p>
+        <p id="jdDesc" class="text-light fs-5">${juegoDestacado.description}</p>
+        <p id="jdPubl"></p>
+        <div>
+          <a href="./Paginas/error404.html"><span class="btn btn-primary" type="button" href="./Paginas/error404.html">
+              See More</span></a>
+        </div>
+      </div>
+        `
+    } else {
+        juegoDestacadoDiv.innerHTML = `
+        <div class="my-5 d-flex flex-md-row flex-sm-column justify-content-around">
+        <div class="text-white img-container img-div-width">
+          <img src="./IMG/Howart Legacy.jpg" class="img-div-width" id="portada" alt="Juego Destacado">
+        </div>
+        <div id="jDestacado" class="juego-destacado-descripcion">
+          <h5 id="jdTitu" class="text-light fw-bold fs-2">Hogwarts Legacy</h5>
+          <p id="jdCodi" class="d-none"></p>
+          <p id="jdCatego" class="text-light fw-bold mt-3 fs-3">Action</p>
+          <p id="jdDesc" class="text-light fs-5">Hogwarts Legacy is an action role-playing game set in 2023 developed by
+            Avalanche Software and published by Warner Bros. Games under its Portkey Games label. The game is
+            set in the Wizarding World universe, based on the Harry Potter novels.</p>
+          <p id="jdPubl"></p>
+          <div>
+            <a href="./Paginas/error404.html"><span class="btn btn-primary" type="button" href="./Paginas/error404.html">
+                See More</span></a>
+          </div>
+        </div>
+      </div>
+        `
+    }
+}
+loadDestacado()

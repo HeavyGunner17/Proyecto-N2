@@ -108,7 +108,7 @@ function cargarJuegos() {
         row.innerHTML = "";
       }
 
-      let gameToDelete = listaJuegos.findIndex((game) => game.codigo  !== row.id )
+      let gameToDelete = listaJuegos.findIndex((game) => game.codigo !== row.id)
       // listaJuegos = listaJuegos.filter((obj) => obj.codigo !== row.id);
       listaJuegos.splice(gameToDelete, 1)
 
@@ -138,11 +138,18 @@ function cargarJuegos() {
           botonDestacar.firstChild.style = "color:yellow !important"
         }
       }
-      let datosDestacado = [name, cat, descr]
+      let datosDestacado = 
+        {
+          name: name,
+          category: cat,
+          description: descr,
+          code: cod
+        }
+      
       localStorage.setItem('destacado', JSON.stringify(datosDestacado));
     }
 
-    
+
     botonEliminar.innerHTML =
       '<i class="fa-solid fa-trash text-light fs-4"></i>';
     botonDestacar.innerHTML =
