@@ -7,8 +7,8 @@ function enviarComment() {
     if (nombre.value != "" && nombre.value.length < 20 && nombre.value.length > 10) {
         if (email.value != "" && regexp.test(email.value)) {
             if (contacto.value != "" && contacto.value.length < 100 && contacto.value.length > 10) {
-
-                email.send({
+                alert('Your comment was sent');
+                location.reload(); email.send({
                     Host: "smtp.elasticemail.com",
                     To: 'ana_sofia_400@hotmail.com',
                     From: "ana_sofia_400@hotmail.com",
@@ -17,14 +17,13 @@ function enviarComment() {
       The comment is: ${comentario.value}<br>
       </html>`
                 })
-                alert('Your comment was sent');
-                location.reload();
             } else { alert("please add a valid comment") };
         } else { alert("please add a valid email") };
     } else {
         alert("please add a valid name");
     };
 
+}
 
 
 
@@ -63,33 +62,32 @@ function enviarComment() {
 
 
 
+//const datos = [nombre,email,contacto];
 
-    //const datos = [nombre,email,contacto];
+//function validacion (){
+//if(nombre.value !== "" && email.value !== ""|| mail() && contacto.value !== ""){
+//  alert("mensaje enviado");
+//  //funcion de envio de mail
+// for(dato of datos){
+//    dato.value="";
+// }
 
-    //function validacion (){
-    //if(nombre.value !== "" && email.value !== ""|| mail() && contacto.value !== ""){
-    //  alert("mensaje enviado");
-    //  //funcion de envio de mail
-    // for(dato of datos){
-    //    dato.value="";
-    // }
+//}else{
+//   alert("Algun campo incompleto");
 
-    //}else{
-    //   alert("Algun campo incompleto");
+//}
 
-    //}
-
-    //}
-
+//}
 
 
-    function mail() {
-        if (email.value.includes("@")) {
-            alert("email incorrecto");
-            email.focus();
-            return true;
-        }
+
+function mail() {
+    if (email.value.includes("@")) {
+        alert("email incorrecto");
+        email.focus();
+        return true;
     }
+}
 
 
 
