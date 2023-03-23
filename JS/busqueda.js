@@ -151,7 +151,7 @@ query.addEventListener("keypress", async e => {
 
             <div class="col-3  text-light game-card p-1">
             <div class="card text-white d-block">
-              <img src="./IMG/${el.background_image}.jpg" class="card-img-top h-50" alt=""${el.name}"">
+              <img src="${el.background_image}" class="card-img-top h-50" alt=""${el.name}"">
             </div>
             <div class="card-body overlay">
               <h5 class="card-title text-center game-card-showcase-title">${el.name}</h5>
