@@ -1,4 +1,6 @@
 
+//funcion que genera el navbar en el html buscando el div con id navbar
+
 function generateNavbar() {
     let navbar = document.getElementById('navbar')
     navbar.innerHTML = `<header>
@@ -105,7 +107,7 @@ generateNavbar()
 
 
 
-
+//funcion que genera el footer en el html buscando el div con id footer
 function generateFooter() {
     let footer = document.getElementById('footer')
     footer.innerHTML = `

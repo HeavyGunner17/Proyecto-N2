@@ -1,7 +1,10 @@
+//funcion que se ejecuta apenas entramos en el sitio y valida si hay un usuario logueado
 function validatePreviousLogin() {
     const getloggeduser = localStorage.getItem('loggedUser')
     const loggeduser = JSON.parse(getloggeduser)
     if (getloggeduser) {
+
+        //si el usuario es admin, genera el html en el navbar con las opciones de admin
         if (loggeduser.user === "admin") {
             document.getElementById('navbar-login').innerHTML = `
           <div class="dropdown">
@@ -13,7 +16,10 @@ function validatePreviousLogin() {
           <li class="dropdown-user"><a class="dropdown-item" href="#" onclick="confirmLogout()">Logout</a></li>
           </ul>
           </div>`
-        } else {
+        } 
+        //si el usuario es user, genera el html en el navbar con las opciones de user
+        else {
+            
             document.getElementById('navbar-login').innerHTML = `
           <div class="dropdown">
           <a class="nav-link text-white dropdown-toggle" data-bs-toggle="dropdown">${loggeduser.user}</a>  
@@ -23,12 +29,16 @@ function validatePreviousLogin() {
           </ul>
           </div>`
         }
-    } else {
+    } 
+    //si no existe un usuario logueado en el localstorage, entonces generamos el html de login en el navbar
+    else {
         document.getElementById('navbar-login').innerHTML = `
           <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>`
     }
 }
 validatePreviousLogin()
+
+//funcion que carga los usuarios al localstorage si es que previamente no habia datos de estos usuarios en el localstorage
 function loadUsers() {
     let data = localStorage.getItem('users')
     if (!data) {
@@ -90,6 +100,8 @@ function loadUsers() {
     }
 }
 loadUsers()
+
+//funcion que guarda todas las id's de los usuarios en un array y luego llama a otro metodo que me devuelva una id diferente a todas las existentes
 function getNewId() {
     let userData = JSON.parse(localStorage.getItem('users'))
     let currentIds = []
@@ -106,6 +118,9 @@ function numeroDiferente(array) {
     }
     return numero;
 }
+
+
+//funcion que utilizamos para redireccionar en caso de login admin o login user
 function redirect(moveTo) {
     switch (moveTo) {
         case "admin":
@@ -118,13 +133,26 @@ function redirect(moveTo) {
             break;
     }
 }
+
+
+
+//Funcion que recibe que tipo de formulario está enviando el usuario
 async function validate(event, type) {
+
+    //vemos si la funcion fue llamada por el formulario de login
     if (type == "login") {
+
+
+        //traemos los valores de lo que ingreso el usuario
         const isValidMail = document.getElementById("username").value
         const isValidPass = document.getElementById("password").value
+
+        //traemos la lista de usuarios del localstorage
         let userListJSON = localStorage.getItem('users')
         let userList = JSON.parse(userListJSON)
         event.preventDefault()
+
+        //vemos si lo ingresado por el usuario es admin para redireccionarlo a la seccion de administrador y guardar en el localstorage el usuario logueado
         if (isValidMail == "admin" && isValidPass == "admin123") {
             const loggedIn = {
                 user: isValidMail,
@@ -133,8 +161,16 @@ async function validate(event, type) {
             localStorage.setItem('loggedUser', loggedInUser)
             redirect("admin")
         }
+
+        //vemos si el usuario ingresado existe en la lista de usuarios
         else if (userList.find(({ username }) => username === isValidMail)) {
+
+
+            //guardamos el objeto del usuario existente con el que coincide el nombre ingresado
             const enteredUser = userList.find(({ username }) => username === isValidMail)
+
+            //validamos que no solo el usuario ingresado coincide con el de la lista, sino que tambien validamos que la contraseña sea correcta y el usuario este aprobado 
+            // por el administrador, si el usuario está validado, guardamos el login en el localstorage y redireccionamos a la seccion de usuario
             if ((enteredUser.username == isValidMail && enteredUser.password == isValidPass && enteredUser.estado == 'aprobado')) {
                 const loggedIn = {
                     user: isValidMail,
@@ -160,17 +196,26 @@ async function validate(event, type) {
             })
         }
     }
+
+    //vemos si la funcion fue llamada por el formulario de crear cuenta
     else if (type == "create") {
         event.preventDefault()
+        // guardamos todos los valores ingresados en el formulario de crear cuenta
         let newUser = document.getElementById("newUsername").value
         let newUserPass = document.getElementById("newPassword").value
         let newUserPassConfirm = document.getElementById("confirm").value
         let newMail = document.getElementById("userEmail").value
         let newSecurityQuestion = document.getElementById("securityQuestion").value
         let newSecurityAnswer = document.getElementById("securityAnswer").value
+
+        //traemos la lista de usuarios
         let users = JSON.parse(localStorage.getItem('users'))
+
+        //buscamos si el usuario o el email ingresado ya existen en nuestra lista de usuarios
         const foundUser = users.find(({ username }) => username == newUser)
         const foundEmail = users.find(({ email }) => email == newMail)
+
+        //si el usuario y el email ingresados no existen en nuestra lista, registramos el usuario y lo cargamos al localstorage
         if (!foundUser && !foundEmail) {
             if (newUserPass == newUserPassConfirm) {
                 const user =
@@ -189,6 +234,8 @@ async function validate(event, type) {
                 let newUserList = JSON.stringify(userList)
                 localStorage.setItem('users', newUserList)
                 Swal.fire('User creation was successful')
+
+                // enviamos el mail informando al admin de la creacion de un nuevo usuario
                 Email.send({
                     Host: "smtp.elasticemail.com",
                     Username: "ana_sofia_400@hotmail.com",
@@ -201,6 +248,8 @@ async function validate(event, type) {
                       and an id of: ${user.id}
                       </html>`
                 })
+
+                //limpiamos los valores de los inputs y cerramos el modal
                 newUser = document.getElementById("newUsername").value = ''
                 newUserPass = document.getElementById("newPassword").value = ''
                 newUserPassConfirm = document.getElementById("confirm").value = ''
@@ -242,10 +291,16 @@ async function validate(event, type) {
         })
     }
 }
+
+
+//saca del localstorage el usuario logueado y recarga la pagina
 function logout() {
     localStorage.removeItem('loggedUser')
     location.reload()
 }
+
+
+//funcion que confirma si el usuario desea salir de su cuenta, si confirma que desea salir, se ejecuta la funcion logout de arriba
 function confirmLogout() {
     Swal.fire({
         title: 'Are you sure you want to log out??',

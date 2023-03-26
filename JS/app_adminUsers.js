@@ -54,7 +54,6 @@ function loadUsers(usersLocal) {
 loadUsers(userRegistred);
 
 function openModal_getId(id) {
-  console.log(id)
   idEdit = userRegistred[id - 1];
 }
 
