@@ -346,10 +346,11 @@ function loadDestacado() {
     let juegoDestacadoDiv = document.getElementById('juego-destacado')
     if (juegoDestacado) {
         juegoDestacadoDiv.innerHTML = `
-        <div class="text-white img-container img-div-width">
+        <div class='row g-0'>
+        <div class="text-white img-container img-div-width col-md-6 align-items-center d-flex justify-content-center">
         <img src="./IMG/${juegoDestacado.name}.jpg" class="img-div-width" id="portada" alt="Juego Destacado">
       </div>
-      <div id="jDestacado" class="juego-destacado-descripcion">
+      <div id="jDestacado" class="juego-destacado-descripcion col-md-6 text-center">
         <h5  class="text-light fw-bold fs-2">${juegoDestacado.name}</h5>
         <p class="d-none">${juegoDestacado.code}</p>
         <p id="jdCatego" class="text-light fw-bold mt-3 fs-3">${juegoDestacado.category}</p>
@@ -359,6 +360,7 @@ function loadDestacado() {
           <a href="./Paginas/error404.html"><span class="btn btn-primary" type="button" href="./Paginas/error404.html">
               See More</span></a>
         </div>
+      </div>
       </div>
         `
     } else {
