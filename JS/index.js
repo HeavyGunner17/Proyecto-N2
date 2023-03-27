@@ -363,11 +363,13 @@ function loadDestacado() {
         `
     } else {
         juegoDestacadoDiv.innerHTML = `
-        <div class="my-5 d-flex flex-md-row flex-sm-column justify-content-around">
-        <div class="text-white img-container img-div-width">
-          <img src="./IMG/Howart Legacy.jpg" class="img-div-width" id="portada" alt="Juego Destacado">
+        <div class="my-2  row g-0">
+        <div class="col-md-6 ">
+        <div class="container-fluid p-3">
+          <img src="./IMG/Howart Legacy.jpg" class="img-fluid " id="portada" alt="Juego Destacado">
+        </div>          
         </div>
-        <div id="jDestacado" class="juego-destacado-descripcion">
+        <div id="jDestacado" class="col-md-6 text-center">
           <h5 id="jdTitu" class="text-light fw-bold fs-2">Hogwarts Legacy</h5>
           <p id="jdCodi" class="d-none"></p>
           <p id="jdCatego" class="text-light fw-bold mt-3 fs-3">Action</p>
